@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        'use strict'
+        function integer1() {
+            let length = +prompt("Введіть відстань L у сантиметрах.");
+            let full_meters = Math.floor(length/100);
+            alert(`${full_meters} повних метрів.`);
+        }
+        // integer1();
+
+        function integer2() {
+            let mass = +prompt("Введіть масу М у кілограмах.");
+            let tonns = Math.floor(mass/1000);
+            alert(`Це ${tonns} повних тонн.`);
+        }
+        // integer2();
+
+        function integer3(){
+            let bytes = +prompt("Введіть розмір файлу у байтах.");
+            let kilobytes = Math.floor(bytes/1024);
+            alert(`Це ${kilobytes} повних кілобайт.`);
+        }
+        // integer3();
+
+        function integer4(){
+            let length_A = +prompt("Введіть довжину відрізку А.");
+            let length_B = +prompt("Введіть довжину відрізку Б.");
+            alert(`На відрізку А може поміститись ${Math.floor(length_A/length_B)} повних відрізків Б без накладень.`);
+        }
+        // integer4();
+
+        function integer5(){
+            let length_A = +prompt("Введіть довжину відрізку А.");
+            let length_B = +prompt("Введіть довжину відрізку Б.");
+            alert(`На відрізку А залишилось ${length_A % length_B} вільного місця.`);
+        }
+        // integer5();
+
+        function integer6() {
+            let number = +prompt("Введіть двозначне число.");
+            alert(`Десятків; ${Math.floor(number/10)}, одиниць: ${number % 10}`);
+        }
+        integer6();
+    </script>
+</body>
+
+</html>
