@@ -8,4 +8,16 @@ function while1() {
     }
     alert(length_a);
 }
-while1();
+// while1();
+
+function while2() {
+    let length_a = +prompt("Enter number A");
+    let length_b = +prompt("Enter number B (A > B)");
+    let counter = 0;
+    while (length_a >= length_b) {
+        length_a = length_a - length_b;
+        counter++;
+    }
+    alert(counter);
+}
+while2();
