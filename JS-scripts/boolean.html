@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function boolean1() {
+            let num_A = +prompt("Введіть число А.");
+            if (num_A > 0) alert("Число А додатнє.");
+        }
+        // boolean1();
+
+        function boolean2() {
+            let num_A = +prompt("Введіть число А.");
+            if (num_A < 0) alert("Число А від'ємне.");
+        }
+        // boolean2();
+
+        function boolean3() {
+            let num_A = +prompt("Введіть число А.");
+            if ((num_A % 2) == 0) alert("Число А парне.");
+        }
+        // boolean3();
+
+        function boolean4() {
+            let num_A = +prompt("Введіть число А.");
+            let num_B = +prompt("Введіть число Б.");
+            if ((num_A > 2) && num_B <= 3) alert(`Нерівності А (= ${num_A}) > 2 та Б (= ${num_B}) <= 3 справедливі.`);
+        }
+        // boolean4();
+
+        function boolean5() {
+            let num_A = +prompt("Введіть число А.");
+            let num_B = +prompt("Введіть число Б.");
+            if ((num_A >= 0) && (num_B < -2)) alert(`Нерівності А (= ${num_A}) >= 0 та Б (= ${num_B}) < -2 справедливі.`);
+        }
+        boolean5();
+    </script>
+</body>
+
+</html>
