@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function if1() {
+            let int_num = +prompt("Введіть ціле число.");
+            if (int_num > 0) alert(`${++int_num}`);
+            else alert(int_num);
+        }
+        // if1();
+
+        function if2() {
+            let int_num = +prompt("Введіть ціле число.");
+            if (int_num > 0) alert(`${++int_num}`)
+            else alert(`${int_num - 2}`);
+        }
+        // if2();
+        function if3() {
+            let int_num = +prompt("Введіть ціле число.");
+            if (int_num > 0) alert(`${++int_num}`)
+            else if (int_num < 0) alert(`${int_num - 2}`);
+            else alert(`${int_num = 10}`);
+        }
+        // if3();
+        function if4() {
+            let int_num1 = +prompt("Введіть перше ціле число.");
+            let int_num2 = +prompt("Введіть друге ціле число.");
+            let int_num3 = +prompt("Введіть третє ціле число.");
+            let pos_amount = 0;            
+            if (int_num1 > 0) ++pos_amount;
+            if (int_num2 > 0) ++pos_amount;
+            if (int_num3 > 0) ++pos_amount;
+            alert(`Серед них ${pos_amount} додатних числа.`);
+        }
+        // if4();
+
+        function if5() {
+            let int_num1 = +prompt("Введіть перше ціле число.");
+            let int_num2 = +prompt("Введіть друге ціле число.");
+            let int_num3 = +prompt("Введіть третє ціле число.");
+            let pos_amount = 0, neg_amount = 0;            
+            if (int_num1 > 0) ++pos_amount;
+            else ++neg_amount;
+            if (int_num2 > 0) ++pos_amount;
+            else ++neg_amount;
+            if (int_num3 > 0) ++pos_amount;
+            else ++neg_amount;
+            alert(`Серед них ${pos_amount} додатних та ${neg_amount} від'ємних числа .`);
+        }
+        if5();
+
+
+    </script>
+</body>
+
+</html>

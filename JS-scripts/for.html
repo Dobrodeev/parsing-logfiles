@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function for1() {
+            let num_K = +prompt("Введіть число K.");
+            let num_N = +prompt("Введіть число N.");
+            for (let i = 0; i < num_N; i++) {
+                alert(num_K);
+            }
+        }
+        // for1();
+
+        function for2() {
+            let num_A = +prompt("Введіть число A.");
+            let num_B = +prompt("Введіть число B (A < B).");
+            let N = 0;
+            for (let i = num_A; i <= num_B; i++, N++) alert(i);
+            alert(`Кількість чисел між А та В (включно з А та В): ${N}.`);
+        }
+        // for2();
+
+        function for3() {
+            let num_A = +prompt("Введіть число A.");
+            let num_B = +prompt("Введіть число B (A < B).");
+            let N = 0;
+            for (let i = num_B - 1; i > num_A; i--, N++) alert(i);
+            alert(`Кількість чисел між А та В (без А та В): ${N}.`);
+        }
+        // for3();
+
+        function for4() {
+            let kg_price = +prompt("Введіть вартість одного кілограму цукерок.");
+            for (let i = 1; i <= 10; i++) alert(`Вартість ${i} кілограм(-а) цукерок: ${i * kg_price}`);
+        }
+        // for4();
+
+        function for5() {
+            let kg_price = +prompt("Введіть вартість одного кілограму цукерок.");
+            for (let i = 0.1; i <= 1; i += 0.1) alert(`Вартість ${i} кілограм(-а) цукерок: ${i * kg_price}`);
+        }
+        for5();
+    </script>
+</body>
+
+</html>

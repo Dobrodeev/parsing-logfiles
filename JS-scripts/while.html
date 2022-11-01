@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function while1() {
+            let A = +prompt("Введіть додатнє число A.");
+            let B = +prompt("Введіть додатнє число B (A > B).");
+            while (A >= B) A -= B;
+            alert(`Довжина незайнятої частини відрізку довжини А, на якому розташовані відрізки довжини В без накладення = ${A}.`);
+        }
+        // while1();
+
+        function while2() {
+            let A = +prompt("Введіть додатнє число A.");
+            let B = +prompt("Введіть додатнє число B (A > B).");
+            let i = 0;
+            while (A >= B) {
+                A -= B;
+                i++;
+            }
+            alert(`На відрізку А може бути розташовано ${i} відрізків В без накладення.`);
+        }
+        // while2();
+
+        function while3() {
+            let N = +prompt("Введіть ціле додатнє число N.");
+            let K = +prompt("Введіть ціле додатнє число K (N > K).");
+            let i = 0;
+            while (N >= K) {
+                N -= K;
+                i++;
+            }
+            alert(`N / K = ${i} = ; остача = ${N}.`);
+        }
+        // while3();
+
+        function while4() {
+            let N = +prompt("Введіть ціле додатнє число N.");
+            while (N % 3 == 0) {
+                alert("True.");
+                break;
+            }
+            while (N % 3 != 0) {
+                alert("False.");
+                break;
+            }
+        }
+        // while4();
+
+        function while5() {
+            let N = +prompt("Введіть ціле додатнє число N, що є степенем числа 2.");
+            let K = 0;
+            while(2 ** K < N) K++;
+            alert(`N = 2 у степені ${K}.`);
+        }
+        while5();
+    </script>
+</body>
+
+</html>
