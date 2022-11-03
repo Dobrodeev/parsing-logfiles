@@ -20,4 +20,34 @@ function while2() {
     }
     alert(counter);
 }
-while2();
+// while2();
+
+function while11() {
+    let N = +prompt("Введіть ціле додатнє число N (N > 1).");
+    let K = 0, i = 1, sum = 0;
+    while(sum < N) {
+        sum += i;
+        K = i;
+        i++;
+        alert(sum);
+    }
+    alert(`Найменше з цілих чисел К, для яких сума 1 + 2 + ... + K >= N (= ${N}) дорівнює ${K}.`);
+    alert(`А ця сума дорівнює ${sum}.`);
+}
+// while11();
+
+function while12() {
+    let N = +prompt("Введіть ціле додатнє число N (N > 1).");
+    let K = 0, i = 1, sum = 0, sumK;
+    while(sum < N) {
+        sumK = sum;
+        sum += i;
+        if (sum > N) break;
+        alert(sum);
+        K = i;
+        i++;
+    }
+    alert(`Найбільше з цілих чисел К, для яких сума 1 + 2 + ... + K <= N (= ${N}) дорівнює ${K}.`); // правильний результат
+    alert(`А ця сума дорівнює ${sumK}.`); // неправильний
+}
+while12();
