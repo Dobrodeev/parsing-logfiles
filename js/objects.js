@@ -15,3 +15,14 @@ function User(first, last){
 }
 let user2 = new User('Brendan', 'Dayley');
 console.log(user2.getName());
+function UserP(first, last){
+    this.first = first;
+    this.last = last;
+}
+UserP.prototype = {
+    getFullName: function(){
+        return this.first + ' ' + this.last;
+    }
+}
+let user3 = new UserP('Brendan', 'Dayley');
+console.log(user3.getFullName());
