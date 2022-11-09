@@ -1,3 +1,6 @@
+import {hello} from './module.js';
+let val = hello();
+console.log(val);
 let user = {
     first: 'Brendan',
     last: 'Dayley',
