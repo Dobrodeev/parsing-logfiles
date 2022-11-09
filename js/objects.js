@@ -30,3 +30,5 @@ let user3 = new UserP('Brendan', 'Dayley');
 console.log(user3.getFullName());
 console.log(user);
 console.log(user.age);
+delete user['likes birds'];
+console.log(user);
