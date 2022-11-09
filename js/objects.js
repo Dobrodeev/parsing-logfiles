@@ -1,6 +1,8 @@
 let user = {
     first: 'Brendan',
     last: 'Dayley',
+    age: 30,
+    "likes birds": true,
     getName: function(){
         return this.first + ' ' + this.last;
     }
@@ -26,3 +28,5 @@ UserP.prototype = {
 }
 let user3 = new UserP('Brendan', 'Dayley');
 console.log(user3.getFullName());
+console.log(user);
+console.log(user.age);
