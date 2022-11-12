@@ -1,5 +1,4 @@
 let ourPlanetEarth, userName;
-<<<<<<< HEAD
 nameOurPlanet="Земля";
 userName="John";
 let myPlanet = {
@@ -13,7 +12,9 @@ let myPlanet = {
     }
 }
 console.log(myPlanet.getFriend());
-=======
+/**
+ * object Earth
+ */
 nameOurPlanet = "Земля";
 userName = "John";
 let Planet = {
@@ -21,5 +22,4 @@ let Planet = {
     userName: "John",
 }
 
->>>>>>> ecd750dedabd7470c5d83d105d4c4aab73670fbe
 
