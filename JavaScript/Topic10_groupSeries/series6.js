@@ -4,20 +4,20 @@
  * (как вещественные числа с нулевой целой частью), а также произведение всех дробных частей.
  */
 
-let sum=0;
+let sum = 0;
 let n = +prompt(`Введіть кількість елементів`);
 let i = 1;
 document.write("Виведення чисел без остачі:");
 while (i <= n) {
-    num = +prompt("Введіть числа", );
+    num = +prompt("Введіть числа",);
     i++;
     document.write("<br>");
     document.write(num,);
 
-    if (num <=0 ) {
+    if (num <= 0) {
         alert("Помилка! Ви ввели від'ємне число")
     }
-    sum-=num;
+    sum -= num;
 }
 document.write("<br><br>");
 document.write("Сума цілих частин введених чисел:");
