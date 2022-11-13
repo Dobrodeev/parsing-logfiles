@@ -14,5 +14,5 @@ while (i < 6) {
     sum += num;
 }
 
-alert(sum/--i);
+alert(sum / --i);
 console.log(sum);
