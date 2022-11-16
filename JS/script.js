@@ -19,7 +19,15 @@ let calculator = {
   },
 
   perc() {
-    return this.a - (this.a / 100 * this.b);
+    return this.a / 100 * this.b;
+  },
+
+  percsum() {
+    return this.a + this.perc();
+  },
+
+  percmin() {
+    return this.a - this.perc();
   },
 
   read() {
@@ -29,4 +37,4 @@ let calculator = {
 };
 
 calculator.read();
-alert(`Результат: ${calculator.sum()}, ${calculator.min()}, ${calculator.mul()}, ${calculator.div()}, ${calculator.perc()}`);
+alert(`Результат: ${calculator.sum()}, ${calculator.min()}, ${calculator.mul()}, ${calculator.div()}, ${calculator.percsum()}, ${calculator.percmin()}`);
