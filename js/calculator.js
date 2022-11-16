@@ -20,5 +20,5 @@ let calculator = {
   };
   
   calculator.read();
-  alert( calculator.sum() );
-  alert( calculator.mul() );
+  alert( 'Сумма a + b: ', calculator.sum() );
+  alert( 'умножение a * b', calculator.mul() );
