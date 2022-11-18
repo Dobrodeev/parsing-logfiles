@@ -58,6 +58,54 @@ function array11() {
 	alert( out.join(", ") );
 }
 
+/**
+Array42. Дано число R и массив размера N. Найти два соседних элемента мас-
+сива, сумма которых наиболее близка к числу R, и вывести эти элементы
+в порядке возрастания их индексов (определение наиболее близких чисел
+дано в задании Array40).
+*/
+function array42() {
+	let numbers = [10, 90, 1, 9, 10, 7, 12, 15, 16, 34];
+	let n = 5;
+	
+	let difference = Number.MAX_VALUE;
+	let neiborough_1 = 0;
+	let neiborough_2 = 0;
+	
+	for (let i = 0; i < numbers.length; ++i) {
+		for (let j = i + 1; j < numbers.length; ++j) {
+			if ( difference > Math.abs(numbers[i] + numbers[j] - n) ) {
+				difference = Math.abs(numbers[i] + numbers[j] - n);
+				
+				neiborough_1 = i;
+				neiborough_2 = j;
+			}
+		}
+	}
+	
+	alert(`${neiborough_1}: ${numbers[neiborough_1]}; ${neiborough_2}: ${numbers[neiborough_2]}.`);
+}
+
+/**
+Array80. Дан массив размера N. Осуществить сдвиг элементов массива влево
+на одну позицию (при этом AN перейдет в AN−1, AN−1 — в AN−2, . . ., A2 —
+в A1, a исходное значение первого элемента будет потеряно). Последний
+элемент полученного массива положить равным 0.
+*/
+function array80() {
+	let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+	
+	for (let i = 1; i < numbers.length; ++i) {
+		numbers[i - 1] = numbers[i];
+	}
+	
+	numbers[numbers.length - 1] = 0;
+	
+	alert(numbers);
+}
+
 //array1();
 //array5();
-array11();
+//array11();
+//array42();
+array80();
