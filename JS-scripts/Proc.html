@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function proc31() {
+        let K = 12355321;
+        let num_arr = [12, 121, 122, 12321, 121121, 123421, 9856589, ];
+        let array = ('' + K).split('');
+        for (let i = 0; i < Math.floor(array.length / 2); i++) {
+            if (array[i] == array.at(-(i+1))) alert(true);
+            else {
+                alert(false);
+                break;
+            }
+        }
+
+    }
+
+    proc31();
+</script>
+</body>
+</html>

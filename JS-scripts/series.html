@@ -32,10 +32,17 @@
     // series1();
 
     function series23() {
-        let saw_arr = [5, 1, 5, 1, 5, 1, 5];
+        let saw_arr = [5, 1, 2, 1, 3, 1, 5];
+        for (let i = 0; i < saw_arr.length; i++) {
+            if (saw_arr[i] > saw_arr[i + 1] && saw_arr[i + 1] < saw_arr[i + 2]) {
+                i++;
+                alert(0);
+                continue;
+            } else alert(1); //  якщо одиниця з'являється тільки у кінці виводу, то масив є "пилою"
+        }
     }
 
-    // series23();
+    series23();
 
     function series25() {
         let sum = 0;
