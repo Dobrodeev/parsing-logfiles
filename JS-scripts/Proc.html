@@ -8,16 +8,29 @@
 <script>
     function proc31() {
         let K = 12355321;
-        let num_arr = [12, 121, 122, 12321, 121121, 123421, 9856589, ];
-        let array = ('' + K).split('');
-        for (let i = 0; i < Math.floor(array.length / 2); i++) {
-            if (array[i] == array.at(-(i+1))) alert(true);
-            else {
-                alert(false);
-                break;
-            }
-        }
+        let num_arr = [12, 121, 1221, 12321, 121121, 123421, 9856589, 321123, 959, 10];
+        let div_num_arr = [];
 
+        // alert(Math.floor(num_arr[0] / 10));
+        // alert(num_arr[0] % 10);
+        //
+        // alert(Math.floor(num_arr[1] / 100));
+        // alert(num_arr[1] % 10);
+
+        alert(Math.floor(num_arr[2] / 1000));
+        alert(Math.floor((num_arr[2] / 100) % 10));
+        alert(Math.floor((num_arr[2] / 10) % 10));
+        alert(num_arr[2] % 10);
+
+        for (let i = 0; i < num_arr.length; i++) {
+            // alert(Math.floor(num_arr[i] / 10));
+            // alert(num_arr[i] % 10);
+        }
+        // for (let i = 0; i < num_arr.length; i ++) {
+        //     alert(Math.floor(num_arr[i] / div_num_arr[i]));
+        //     alert(num_arr[i] % div_num_arr[i]);
+        //     // if (Math.floor(num_arr[i] / div_num_arr[i]) == num_arr[i] % div_num_arr[i]) alert(true);
+        // }
     }
 
     proc31();
