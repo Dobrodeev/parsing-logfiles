@@ -20,8 +20,8 @@
 
     function integer2() {
         let mass = +prompt("Введіть масу М у кілограмах.");
-        let tonns = Math.floor(mass / 1000);
-        alert(`Це ${tonns} повних тонн.`);
+        let tons = Math.floor(mass / 1000);
+        alert(`Це ${tons} повних тонн.`);
     }
 
     // integer2();
@@ -62,7 +62,23 @@
         alert(Math.floor(A / 100));
     }
 
-    integer9();
+    // integer9();
+
+    function integer15() {
+        let A = +prompt("Введіть трьохзначне число А.");
+        let str_A = String(A);
+        alert(`Строка = ${str_A}`);
+        let hund = Math.floor((A / 100));
+        let deci = Math.floor((A / 10) % 10);
+        let uni = A % 10;
+        alert(hund);
+        alert(deci);
+        alert(uni);
+        str_A = String(deci) + String(hund) + String(uni);
+        alert(A = str_A);
+    }
+
+    integer15();
 </script>
 </body>
 
