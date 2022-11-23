@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изучение JS</title>
+</head>
+<body>
+<script>
+    /**Integer15. Дано трехзначное число. Вывести число, полученное при перестaновке цифр сотен и
+     * десятков исходного числа (например, 123 перейдет
+в 213).*/
+    function integer15(){
+        let a = +prompt('a = ');
+        let b;//4
+        b = Math.trunc(a/100);
+        let c;//5
+        c = Math.trunc(a/10%10);
+        let d;//6
+        d = a%10;
+        alert(b);
+        alert(c);
+        alert(d);
+        alert(` ${c}${b}${d} `);
+    } integer15();
+    </script>
+</body>
+</html>
