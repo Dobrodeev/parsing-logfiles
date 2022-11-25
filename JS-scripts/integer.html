@@ -2,84 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 
 <body>
-<script>
+  <script>
     'use strict'
 
     function integer1() {
-        let length = +prompt("Введіть відстань L у сантиметрах.");
-        let full_meters = Math.floor(length / 100);
-        alert(`${full_meters} повних метрів.`);
+      let length = +prompt("Введіть відстань L у сантиметрах.");
+      let full_meters = Math.floor(length / 100);
+      alert(`${full_meters} повних метрів.`);
     }
 
     // integer1();
 
     function integer2() {
-        let mass = +prompt("Введіть масу М у кілограмах.");
-        let tons = Math.floor(mass / 1000);
-        alert(`Це ${tons} повних тонн.`);
+      let mass = +prompt("Введіть масу М у кілограмах.");
+      let tons = Math.floor(mass / 1000);
+      alert(`Це ${tons} повних тонн.`);
     }
 
     // integer2();
 
     function integer3() {
-        let bytes = +prompt("Введіть розмір файлу у байтах.");
-        let kilobytes = Math.floor(bytes / 1024);
-        alert(`Це ${kilobytes} повних кілобайт.`);
+      let bytes = +prompt("Введіть розмір файлу у байтах.");
+      let kilobytes = Math.floor(bytes / 1024);
+      alert(`Це ${kilobytes} повних кілобайт.`);
     }
 
     // integer3();
 
     function integer4() {
-        let length_A = +prompt("Введіть довжину відрізку А.");
-        let length_B = +prompt("Введіть довжину відрізку Б.");
-        alert(`На відрізку А може поміститись ${Math.floor(length_A / length_B)} повних відрізків Б без накладень.`);
+      let length_A = +prompt("Введіть довжину відрізку А.");
+      let length_B = +prompt("Введіть довжину відрізку Б.");
+      alert(`На відрізку А може поміститись ${Math.floor(length_A / length_B)} повних відрізків Б без накладень.`);
     }
 
     // integer4();
 
     function integer5() {
-        let length_A = +prompt("Введіть довжину відрізку А.");
-        let length_B = +prompt("Введіть довжину відрізку Б.");
-        alert(`На відрізку А залишилось ${length_A % length_B} вільного місця.`);
+      let length_A = +prompt("Введіть довжину відрізку А.");
+      let length_B = +prompt("Введіть довжину відрізку Б.");
+      alert(`На відрізку А залишилось ${length_A % length_B} вільного місця.`);
     }
 
     // integer5();
 
     function integer6() {
-        let number = +prompt("Введіть двозначне число.");
-        alert(`Десятків; ${Math.floor(number / 10)}, одиниць: ${number % 10}`);
+      let number = +prompt("Введіть двозначне число.");
+      alert(`Десятків; ${Math.floor(number / 10)}, одиниць: ${number % 10}`);
     }
 
     // integer6();
 
+    function integer7() {
+      let A = 25;
+      let sum = (Math.floor(A/10)) + (A%10);
+      let mul = (Math.floor(A/10)) * (A%10);
+      alert(sum);
+      alert(mul);
+    }
+
+    //integer7();
+
+    function integer8() {
+      let A = 35;
+      let deci = Math.floor(A/10);
+      let uni = A % 10;
+      let str_A = String(A);
+      str_A = String(uni) + String(deci);
+      alert(str_A);
+    }
+
+    //integer8();
+
     function integer9() {
-        let A = +prompt("Введіть трьохзначне число А.");
-        alert(Math.floor(A / 100));
+      let A = +prompt("Введіть трьохзначне число А.");
+      alert(Math.floor(A / 100));
     }
 
     // integer9();
 
-    function integer15() {
-        let A = +prompt("Введіть трьохзначне число А.");
-        let str_A = String(A);
-        alert(`Строка = ${str_A}`);
-        let hund = Math.floor((A / 100));
-        let deci = Math.floor((A / 10) % 10);
-        let uni = A % 10;
-        alert(hund);
-        alert(deci);
-        alert(uni);
-        str_A = String(deci) + String(hund) + String(uni);
-        alert(A = str_A);
+    function integer10() {
+      let A = 123;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      alert(uni, deci);
     }
 
-    integer15();
-</script>
+    //integer10();
+
+    function integer11() {
+      let A = 124;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      alert(hund + deci + uni);
+      alert(hund * deci * uni);
+    }
+
+    //integer11();
+
+    function integer12() {
+      let A = 124;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      let reverse_A = String(uni) + String(deci) + String(hund);
+      alert(reverse_A);
+    }
+
+    //integer12();
+
+    function integer13() {
+      let A = 124;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      let alt_A = String(deci) + String(uni) + String(hund);
+      alert(alt_A);
+    }
+
+    //integer13();
+
+    function integer14() {
+      let A = 124;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      let alt_A = String(uni) + String(hund) + String(deci);
+      alert(alt_A);
+    }
+
+    //integer14();
+
+    function integer15() {
+      let A = +prompt("Введіть трьохзначне число А.");
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      let alt_A = String(deci) + String(hund) + String(uni);
+      alert(alt_A);
+    }
+
+    //integer15();
+
+    function integer16() {
+      let A = 124;
+      let uni = A % 10;
+      let deci = (Math.floor(A / 10)) % 10;
+      let hund = Math.floor(A / 100);
+      let alt_A = String(hund) + String(uni) + String(deci);
+      alert(alt_A);
+    }
+
+    //integer16();
+
+    function integer17() {
+      let A = 1234;
+      let hund = (Math.floor(A / 100)) % 10;
+      alert(hund);
+    }
+
+    //integer17();
+
+    function integer18() {
+      let A = +prompt("Enter number A (> 1000)");
+      let thousands = Math.floor(A / 1000);
+      alert(thousands);
+    }
+
+    integer18();
+  </script>
 </body>
 
 </html>
