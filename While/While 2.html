@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en"
 <head>
@@ -21,3 +22,28 @@
     </script>
 </body>
 <html>
+=======
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 2 Тема: While</title>
+</head>
+<body>
+    <script>
+        //While2. Даны положительные числа A и B (A > B). На отрезке длины A размещено максимально возможное количество отрезков длины B (без наложений). Не используя операции умножения и деления, найти количество отрезков B, размещенных на отрезке A.
+        var a = prompt("A: ");
+        var b = prompt("B: ");
+        var num = 0;
+        while (a - b >= 0)
+{
+            a -= b;
+            ++num;
+}
+        document.write("Ответ: " + num);
+    </script>
+</body>
+<html>
+>>>>>>> 79a6943a34ed62085e8cffc1e5b1ca0630ae8760

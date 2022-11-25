@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en"
 <head>
@@ -21,3 +22,28 @@
     </script>
 </body>
 <html>
+=======
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 6 Тема: While</title>
+</head>
+<body>
+    <script>
+        //While6. Дано целое число N (> 0). Найти двойной факториал N: N!! = N*(N-2)*(N-4)*… (последний сомножитель равен 2, если N — четное, и 1, если N — нечетное). Чтобы избежать целочисленного переполнения, вычислять это произведение с помощью вещественной переменной и вывести его как вещественное число.
+        var n = prompt("N: ");
+        var rez = 1;
+        parseFloat (rez);
+        while (n >= 2)
+{
+        rez *= n;
+        n -= 2;
+}
+        document.write("Двойной факториал равен: " + rez);
+    </script>
+</body>
+<html>
+>>>>>>> 79a6943a34ed62085e8cffc1e5b1ca0630ae8760
