@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 9 Тема: While</title>
+</head>
+<body>
+    <script>
+        //While9. Дано целое число N (> 1). Найти наименьшее целое число K, при котором выполняется неравенство 3K > N.
+        var n = prompt("Введите N (>1): ");
+        var k = 1, a = 3;
+        while (a <= n)
+        {
+            a *= 3;
+            ++k;
+        }
+        document.write("Наименьшее целое число K: " + k);
+    </script>
+</body>
+<html>
