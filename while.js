@@ -138,9 +138,80 @@ function task17() {
 	alert( "[task17] Цифри числа N: " + digits.join(", ") );
 }
 
+/**
+While20. Дано целое число N (> 0). С помощью операций деления нацело и взя-
+тия остатка от деления определить, имеется ли в записи числа N цифра «2».
+Если имеется, то вывести True, если нет — вывести False.
+*/
+function task20() {
+	let num = +prompt("Уведіть ціле число Z:");
+	
+	if ( num != Math.floor(num) ) {
+		alert("Число Z повинно бути цілим.");
+		return;
+	}
+	
+	num = Math.abs(num)
+	
+	let is_there_2 = false;
+	while (num > 0) {
+		if (num % 10 == 2) {
+			is_there_2 = true;
+			break;
+		}
+		
+		num = Math.floor(num / 10);
+	}
+	
+	alert(`Уведене число${is_there_2 ? "" : " не"} має цифру 2.`);
+}
+
+/**
+While23°. Даны целые положительные числа A и B. Найти их наибольший об-
+щий делитель (НОД), используя алгоритм Евклида:
+        НОД(A, B) = НОД(B, A mod B), если B ≠ 0; НОД(A, 0) = A,
+где «mod» обозначает операцию взятия остатка от деления.
+*/
+function task23() {
+	function getGreatestCommonDivisor(a, b) {
+		while (b != 0) {
+			temp = a;
+			a = b;
+			b = temp % b;
+		}
+		
+		return a;
+	}
+	
+	function getPositiveInteger(prompt_text) {
+		let num = +prompt(prompt_text);
+		
+		if (num <= 0 || num != Math.floor(num) ) {
+			throw Error("Число повинно бути цілим і додатнім.");
+		}
+		
+		return num;
+	}
+	
+	let a = 0;
+	let b = 0;
+	try {
+		a = getPositiveInteger("Уведіть ціле число A:");
+		b = getPositiveInteger("Уведіть ціле число B:");
+	}
+	catch (error) {
+		alert(error.message);
+		return;
+	}
+	
+	alert(`Спільний найбільший дільник A і B: ${getGreatestCommonDivisor(a, b)}.`);
+}
+
 //task1();
 //task2();
 //task3();
 //task7();
 //task11();
-task17();
+//task17();
+//task20();
+task23();
