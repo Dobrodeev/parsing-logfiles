@@ -50,7 +50,94 @@
         }
         if5();
 
+function if6() {
+  let a = 2,
+  b = 3;
+  if (a > b) alert(a);
+  alert(b);
+}
 
+//if6();
+
+function if7() {
+  let first = 4,
+  second = 3;
+  if (first < second) alert ("1st");
+  else if (second < first) alert ("2nd");
+}
+
+//if7();
+
+function if8() {
+  let first = 4,
+  second = 5;
+  if (first > second) alert (`${first}, ${second}`);
+  else if (second > first) alert (`${second}, ${first}`);
+}
+
+//if8();
+
+function if9() {
+  let a = +prompt("Enter real number а.");
+  let b = +prompt("Enter real number b.");
+  let buffer;
+  if (a > b) {
+    buffer = a;
+    a = b;
+    b = buffer;
+  }
+  alert(`a = ${a}, b = ${b}.`);
+}
+
+//if9();
+
+function if10() {
+  let A = +prompt("Enter number A.");
+  let B = +prompt("Enter number B.");
+  if (A != B) A = B = A + B;
+  else A = B = 0;
+  alert(`A = ${A}, B = ${B}`);
+}
+
+//if10();
+
+function if11() {
+  let A = +prompt("Enter number A.");
+  let B = +prompt("Enter number B.");
+  if (A != B) {
+    if (A > B) B = A;
+    else if (B > A) A = B;
+  } else A = B = 0;
+  alert(`A = ${A}, B = ${B}`);
+}
+
+//if11();
+
+function if12() {
+  let a = +prompt("Enter num a.");
+  let b = +prompt("Enter num b.");
+  let c = +prompt("Enter num c.");
+  let min;
+  if (a < b) min = a;
+  else min = b;
+  if (c < a && c < b) min = c;
+  alert(min);
+}
+
+//if12();
+
+function if13() {
+  let a = +prompt("Enter num a.");
+  let b = +prompt("Enter num b.");
+  let c = +prompt("Enter num c.");
+  let medium;
+  if ((a < c && a > b) || (a < b && a > c)) medium = a;
+  if ((b < a && b > c) || (b < c && b > a)) medium = b;
+  if ((c < a && c > b) || (c < b && c > a)) medium = c;
+  alert(medium);
+}
+
+if13();
     </script>
 </body>
 

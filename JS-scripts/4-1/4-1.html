@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict'
+    function obj1() {
+        let user = {
+            name: "John",
+            surname: "Smith",
+            name2: "Pete",
+        };
+        delete user.name;
+        alert(user.name);
+    }
+    // obj1();
+
+    function isEmpty(obj) {
+        for (let [key] in obj) {
+            return false;
+        }
+        return true;
+    }
+
+    function obj2() {
+        let schedule = {};
+        alert(isEmpty(schedule));
+        schedule["8:30"] = "get up";
+        alert(isEmpty(schedule));
+    }
+
+    // obj2();
+
+    function obj3() {
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130,
+        };
+        if (isEmpty(salaries)) console.log(0);
+        let sum = salaries.John + salaries.Ann + salaries.Pete;
+        alert(sum);
+    }
+
+    // obj3();
+
+    function multiplyNumeric(obj) {
+        for (let key in obj) {
+            if (typeof (key)  == "number") key *= 2;
+        }
+    }
+
+    function obj4() {
+        let menu = {
+            width: 200,
+            height: 300,
+            title: "My menu",
+        };
+        alert(multiplyNumeric(menu[width]));
+        alert(multiplyNumeric(menu[height]));
+        alert(multiplyNumeric(menu[title]));
+    }
+
+    obj4();
+</script>
+</body>
+</html>

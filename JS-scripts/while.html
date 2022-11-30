@@ -77,11 +77,11 @@
     }
 
     // while11();
-
+    //
     function while12() {
         let N = +prompt("Введіть ціле додатнє число N (N > 1).");
         let K = 0, i = 1, sum = 0, sumK;
-        while (sum < N) {
+        while (sum <= N) {
             sumK = sum;
             sum += i;
             if (sum > N) break;
@@ -93,7 +93,72 @@
         alert(`А ця сума дорівнює ${sumK}.`);
     }
 
-    while12();
+    // while12();
+
+    function while13() {
+        let A = +prompt("Введіть число А (> 1).");
+        let K = 0, i = 1, div_i = 1, sum = 0;
+        while (sum < A) {
+            sum += div_i;
+            K = i;
+            i++;
+            div_i = 1 / i;
+            alert(sum);
+        }
+        alert(`Найбільше з цілих чисел К, для яких сума 1 + 1/2 + ... + 1/K >= A(= ${A}) дорівнює ${K}.`);
+        alert(`А ця сума дорівнює ${sum}.`);
+    }
+
+    // while13();
+
+    function while14() {
+        let A = +prompt("Введіть число А (> 1).");
+        let K = 0, i = 1, div_i = 1, sum = 0, sumK = 0;
+        while (sum <= A) {
+            sumK = sum;
+            sum += div_i;
+            K = i;
+            i++;
+            div_i = 1 / i;
+            alert(sum);
+            alert(`K = ${K}`);
+        }
+        alert(`Найбільше з цілих чисел К, для яких сума 1 + 1/2 + ... + 1/K <= A(= ${A}) дорівнює ${K-1}.`);
+        alert(`А ця сума дорівнює ${sumK}.`);
+
+    }
+
+    while14();
+
+    function while17() {
+
+    }
+
+    function while18() {
+
+    }
+
+    function while19() {
+
+    }
+
+    function while20() {
+
+    }
+
+    function while21() {
+
+    }
+
+    function while22() {
+
+    }
+
+    function while24() {
+
+    }
+
+
 </script>
 </body>
 
