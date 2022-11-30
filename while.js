@@ -186,7 +186,7 @@ function task23() {
 	function getPositiveInteger(prompt_text) {
 		let num = +prompt(prompt_text);
 		
-		if (num <= 0 || num != Math.floor(num) ) {
+		if ( num <= 0 || num != Math.floor(num) ) {
 			throw Error("Число повинно бути цілим і додатнім.");
 		}
 		
