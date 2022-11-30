@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function digitCount(K) {
+    // return String(K).length;
+    let counter = 0;
+    if (K % 10 >= 0) counter++;
+    for (let i = 2, divider = 10; i <= String(K).length; i++, divider * 10) {
+      if (Math.floor(K / divider) >= 0) counter++;
+    }
+    return counter;
+  }
+
+  function proc29() {
+    let arr_K = [101,
+      12,
+      123,
+      1234,
+      12345];
+    for (let i = 0; i < 5; i++) {
+      alert(digitCount(arr_K[i]));
+    }
+  }
+
+  proc29();
+
+  function digitN(K, N) {
+    if (digitCount(K) < N) return -1;
+    //let digit = 0;
+    //let nums_digit_amount = digitCount(K);
+    if (N == 1) return K % 10;
+    if (N == 2) return Math.floor(K / 10);
+    if (N == 3) return Math.floor(K / 100);
+    if (N == 4) return Math.floor(K / 1000);
+    if (N == 5) return Math.floor(K / 10000);
+    if (N == 6) return Math.floor(K / 100000);
+    if (N == 7) return Math.floor(K / 1000000);
+    //for (let i = 0; i < ) {}
+  }
+
+  function proc30() {
+    let k = [1,
+      12,
+      123,
+      1234,
+      12345]
+    for (let i = 0; i < 5; i++) {
+      for (let n = 1; n<= 5; n++) {
+        console.log(digitN(k[i], n));
+      }
+    }
+  }
+
+  proc30();
+
+  function proc31() {
+    // proc31
+    // let K = 12355321;
+    let num_arr = [12,
+      121,
+      1221,
+      12321,
+      121121,
+      123421,
+      9856589,
+      321123,
+      959,
+      10];
+    let div_num_arr = [];
+
+    for (let i = 0; i < num_arr.length; i ++) {
+      if (num_arr[i] >= 10) div_num_arr[i] = 10;
+      if (num_arr[i] >= 100) div_num_arr[i] = 100;
+      if (num_arr[i] >= 1000) div_num_arr[i] = 1000;
+      if (num_arr[i] >= 10000) div_num_arr[i] = 10000;
+      if (num_arr[i] >= 100000) div_num_arr[i] = 100000;
+      if (num_arr[i] >= 1000000) div_num_arr[i] = 1000000;
+      if (num_arr[i] >= 10000000) div_num_arr[i] = 10000000;
+      alert(`${i}-те число div_num_arr = ${div_num_arr[i]}`);
+    }
+
+    // alert(Math.floor(num_arr[0] / 10));
+    // alert(num_arr[0] % 10);
+    //
+    // alert(Math.floor(num_arr[1] / 100));
+    // alert(num_arr[1] % 10);
+
+    // alert(Math.floor(num_arr[2] / 1000));
+    // alert(Math.floor((num_arr[2] / 100) % 10));
+    // alert(Math.floor((num_arr[2] / 10) % 10));
+    // alert(num_arr[2] % 10);
+
+    // alert(Math.floor(num_arr[3] / 10000));
+    // alert(Math.floor((num_arr[3] / 1000) % 10));
+    // alert(Math.floor((num_arr[3] / 100) % 10));
+    // alert(Math.floor((num_arr[3] / 10) % 10));
+    // alert(num_arr[3] % 10);
+
+    // alert(Math.floor(num_arr[4] / 100000));
+    // alert(Math.floor((num_arr[4] / 10000) % 10));
+    // alert(Math.floor((num_arr[4] / 1000) % 10));
+    // alert(Math.floor((num_arr[4] / 100) % 10));
+    // alert(Math.floor((num_arr[4] / 10) % 10));
+    // alert(num_arr[4] % 10);
+
+    let num_digits = [];
+
+    for (let i = 0; i < num_arr.length; i++) {
+      if (num_arr[i] >= 10) {}
+    }
+  }
+
+</script>
+</body>
+</html>
