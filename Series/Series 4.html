@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 4 Тема: Series</title>
+</head>
+<body>
+    <script>
+        //Series4. Дано целое число N и набор из N вещественных чисел. Вывести сумму и произведение чисел из данного набора.
+        var sum = 0;
+        var pro = 1;
+        var r;
+        for (var i = 1; i <= 10; i++)
+        {
+            r = prompt("i " + i + " - ");
+            sum += r;
+            pro *= r;
+        }
+        document.write ("Сумма:  " + sum + " " + "Произведение: " + pro);
+    </script>
+</body>
+<html

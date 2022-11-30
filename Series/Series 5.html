@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 5 Тема: Series</title>
+</head>
+<body>
+    <script>
+        //Series5. Дано целое число N и набор из N положительных вещественных чисел. 
+        //Вывести в том же порядке целые части всех чисел из данного набора (как вещественные числа с нулевой дробной частью), а также сумму всех целых частей.
+        var sum = 0;
+        var r;
+        var n = prompt("N: ");
+        for (var i = 1; i <= n; i++)
+        {
+            r = prompt("i " + i + " - ");
+            sum += r;
+            document.write(" " + r +" ");
+            sum += r;
+        }
+        document.write ("Сумма:  " + sum);
+    </script>
+</body>
+<html
