@@ -92,14 +92,135 @@ function proc33() {
 	}
 	
 	try {
-		DegToRad(-8);
+		RadToDeg(-8);
 	}
 	catch (error) {
 		alert(error.message);
 	}
 }
 
+/**
+Proc34. Описать функцию Fact(N) вещественного типа, вычисляющую значе-
+ние факториала N! = 1·2·…·N (N > 0 — параметр целого типа; веществен-
+ное возвращаемое значение используется для того, чтобы избежать цело-
+численного переполнения при больших значениях N). С помощью этой
+функции найти факториалы пяти данных целых чисел.
+*/
+function proc34() {
+	function Fact(num) {
+		if (num < 0) {
+			throw Error("Fact: переданий параметр повинен бути >= 0.");
+		}
+		
+		let result = 1;
+		for (let i = num; i > 0; --i) {
+			result *= i;
+		}
+		
+		return result;
+	}
+	
+	for (let count = 5; count > 0; --count) {
+		let num = Math.floor( getRandomArbitrary(0, 10) );
+		console.log(`Факторіал ${num}: ${Fact(num)}.`);
+		alert(`Факторіал ${num}: ${Fact(num)}.`);
+	}
+	
+	try {
+		Fact(-8);
+	}
+	catch (error) {
+		alert(error.message);
+	}
+}
+/**
+Proc35. Описать функцию Fact2(N) вещественного типа, вычисляющую двой-
+ной факториал:
+      N!! = 1·3·5·…·N, если N — нечетное;
+      N!! = 2·4·6·…·N, если N — четное
+
+(N > 0 — параметр целого типа; вещественное возвращаемое значение ис-
+пользуется для того, чтобы избежать целочисленного переполнения при
+больших значениях N). С помощью этой функции найти двойные факториалы
+пяти данных целых чисел.
+*/
+function proc35() {
+	function Fact2(num) {
+		if (num <= 0) {
+			throw Error("Fact2: переданий параметр повинен бути > 0.");
+		}
+		
+		
+		let result = 1;
+		// якщо num парне, то i = 2 - num % 2 = 2 - 0 = 2;
+		// якщо num непарне, то i = 2 - num % 2 = 2 - 1 = 1;
+		for (let i = 2 - num % 2; i <= num; i += 2) {
+			result *= i;
+		}
+		
+		return result;
+	}
+	
+	for (let count = 5; count > 0; --count) {
+		let num = Math.floor( getRandomArbitrary(0, 9) );
+		console.log(`Подвійний факторіал ${num}: ${Fact2(num)}.`);
+		alert(`Подвійний факторіал ${num}: ${Fact2(num)}.`);
+	}
+	
+	try {
+		Fact2(0);
+	}
+	catch (error) {
+		alert(error.message);
+	}
+}
+
+/**
+Proc36. Описать функцию Fib(N) целого типа, вычисляющую N-й элемент по-
+следовательности чисел Фибоначчи FK, которая описывается следующими
+формулами:
+
+               F1 = 1, F2 = 1, FK = FK–2 + FK–1, K = 3, 4, … .
+Используя функцию Fib, найти пять чисел Фибоначчи с данными номера-
+ми N1, N2, …, N5.
+*/
+function proc36() {
+	function Fib(element_index) {
+		if (element_index <= 0) {
+			throw Error("Fib: переданий параметр повинен бути > 0.");
+		}
+		
+		let previous = 1;
+		let current  = 1;
+		
+		for (let i = element_index; i > 2; --i) {
+			let temp = previous;
+			previous = current;
+			current = temp + previous;
+		}
+		
+		return current;
+	}
+	
+	for (let count = 5; count > 0; --count) {
+		let element_index = Math.floor( getRandomArbitrary(1, 20) );
+		console.log(`${element_index}-й елемент послідовності Фібоначі: ${Fib(element_index)}.`);
+		alert(`${element_index}-й елемент послідовності Фібоначі: ${Fib(element_index)}.`);
+	}
+	
+	try {
+		Fib(0);
+	}
+	catch (error) {
+		alert(error.message);
+		console.log(error.message);
+	}
+}
+
 //proc1();
 //proc3();
 //proc32();
-proc33();
+//proc33();
+//proc34();
+//proc35();
+proc36();
