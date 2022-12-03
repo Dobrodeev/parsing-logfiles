@@ -8,20 +8,51 @@
 <script>
     /**Integer15. Дано трехзначное число. Вывести число, полученное при перестaновке цифр сотен и
      * десятков исходного числа (например, 123 перейдет
-в 213).*/
-    function integer15(){
+     в 213).*/
+    function integer15() {
         let a = +prompt('a = ');
         let b;//4
-        b = Math.trunc(a/100);
+        b = Math.trunc(a / 100);
         let c;//5
-        c = Math.trunc(a/10%10);
+        c = Math.trunc(a / 10 % 10);
         let d;//6
-        d = a%10;
+        d = a % 10;
         alert(b);
         alert(c);
         alert(d);
         alert(` ${c}${b}${d} `);
-    } integer15();
-    </script>
+    }
+
+    //integer15();
+
+    function checkAge() {
+        let age = +prompt('Your age = ');
+        if (age > 18) {
+            alert ('very well')
+            return true;
+        } else {
+            // ...
+            return confirm('Родители разрешили?');
+        }
+    }
+   // checkAge();
+
+    function sum(a, b) {
+        return a + b;
+    }
+
+    let result = sum(1, 2);
+    // alert( result ); // 3
+    function showMessage(from, text) { // параметры: from, text
+        alert(from + ': ' + text);
+    }
+
+    // showMessage('Аня', 'Привет!'); // Аня: Привет! (*)
+    // showMessage('Аня', "Как дела?"); // Аня: Как дела? (**)
+
+    function checkAge(age) {
+        return (age > 18) ? true: confirm('Родители разрешили?');
+    }
+</script>
 </body>
 </html>
