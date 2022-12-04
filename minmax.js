@@ -32,7 +32,7 @@ function minmax1() {
 		`Числа: ${numbers}\n` +
 		`Найменше: ${Math.min(...numbers)}\n` +
 		`Найбільше: ${Math.max(...numbers)}`
-	)
+	);
 }
 
 /**
@@ -63,7 +63,7 @@ function minmax2_3() {
 	alert(
 		`Найменша площа: ${min_area}\n` +
 		`Найбільша площа: ${max_area}`
-	)
+	);
 }
 
 /**
@@ -84,7 +84,7 @@ function minmax4() {
 		`Числа: ${numbers}\n` +
 		`Номер найменшого числа: ${min_index}\n` +
 		`Власне найменше число: ${numbers[min_index]}`
-	)
+	);
 }
 
 /**
@@ -119,12 +119,33 @@ function minmax5() {
 	);
 }
 
+/**
+Minmax8. Дано целое число N и набор из N целых чисел. Найти номера первого
+и последнего минимального элемента из данного набора и вывести их в
+указанном порядке.
+*/
+function minmax8() {
+	const numbers = getRandomArray(1, 4, 8, 0);
+	
+	const min_element = Math.min(...numbers);
+	
+	const first_index_of_min = numbers.findIndex(num => num == min_element);
+	const last_index_of_min = numbers.lastIndexOf(min_element);
+	
+	alert(
+		`Числа: ${numbers}\n` +
+		`Найменше число: ${min_element}\n` +
+		`Перший індекс наймешого числа: ${first_index_of_min}\n` +
+		`Останній індекс наймешого числа: ${last_index_of_min}`
+	);
+}
 
 try {
 	//minmax1();
 	//minmax2_3();
 	//minmax4();
-	minmax5();
+	//minmax5();
+	minmax8();
 }
 catch (error) {
 	alert(error.message);
