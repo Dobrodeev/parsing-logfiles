@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 34 Тема: Proc</title>
+</head>
+<body>
+    <script>
+        //Proc34. Описать функцию Fact(N) вещественного типа, вычисляющую значение факториала N! = 1*2*…*N
+        //(N > 0 — параметр целого типа; вещественное возвращаемое значение используется для того, чтобы избежать целочисленного переполнения при больших значениях N).
+        //С помощью этой функции найти факториалы пяти данных целых чисел.
+        var i, n;
+        for (i = 1; i <= 5; ++i)
+        {
+        n = prompt ("N: ");
+        document.write (fact(n));
+        }
+ 
+      function fact(n)
+{
+        var temp = 1;
+        for (var i = 1; i <= n; ++i)
+        {
+        temp *= i;
+        document.write (" Factorial: " + n);
+        return temp;
+        }
+}
+    </script>
+</body>
+<html
