@@ -1,0 +1,33 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задача 35 Тема: Proc</title>
+</head>
+<body>
+    <script>
+    //Описать функцию Fact2(N) вещественного типа, вычисляющую двойной факториал:
+    //N!! = 1*3*5*…*N, если N — нечетное;
+    //N!! = 2*4*6*…*N, если N — четное
+    //(N > 0) — параметр целого типа; вещественное возвращаемое значение используется для того, чтобы избежать целочисленного переполнения при больших значениях N).
+    //С помощью этой функции найти двойные факториалы пяти данных целых чисел.
+    var i, n;
+    alert("N > 0 ");
+    for (i = 1; i <= 5; ++i)
+    {
+        n = prompt ("N: ");
+        document.write (fact2(n));
+    }
+    function fact2(n)
+{
+    var temp = 1;
+    for ( ; n > 0; n -= 2)
+    {
+        temp *= n;
+        document.write (" Factorial: " + n);
+        return temp;
+    }
+}
+    </script>
+</body>
+<html
