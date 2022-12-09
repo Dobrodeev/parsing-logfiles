@@ -1,133 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<script>
-  function digitCount(K) {
-    // return String(K).length;
-    let counter = 0;
-    if (K % 10 >= 0) counter++;
-    for (let i = 2, divider = 10; i <= String(K).length; i++, divider * 10) {
-      if (Math.floor(K / divider) >= 0) counter++;
-    }
-    return counter;
-  }
-
-  function proc29() {
-    let arr_K = [101,
-      12,
-      123,
-      1234,
-      12345];
-    for (let i = 0; i < 5; i++) {
-      alert(digitCount(arr_K[i]));
-    }
-  }
-
-  proc29();
-
-  function digitN(K, N) {
-    if (digitCount(K) < N) return -1;
-    //let digit = 0;
-    //let nums_digit_amount = digitCount(K);
-    if (N == 1) return K % 10;
-    if (N == 2) return Math.floor(K / 10);
-    if (N == 3) return Math.floor(K / 100);
-    if (N == 4) return Math.floor(K / 1000);
-    if (N == 5) return Math.floor(K / 10000);
-    if (N == 6) return Math.floor(K / 100000);
-    if (N == 7) return Math.floor(K / 1000000);
-    //for (let i = 0; i < ) {}
-  }
-
-  function proc30() {
-    let k = [1,
-      12,
-      123,
-      1234,
-      12345]
-    for (let i = 0; i < 5; i++) {
-      for (let n = 1; n<= 5; n++) {
-        console.log(digitN(k[i], n));
-      }
-    }
-  }
-
-  proc30();
-
-  function proc31() {
-    // proc31
-    // let K = 12355321;
-    let num_arr = [12,
-      121,
-      1221,
-      12321,
-      121121,
-      123421,
-      9856589,
-      321123,
-      959,
-      10];
-    let div_num_arr = [];
-
-    for (let i = 0; i < num_arr.length; i ++) {
-      if (num_arr[i] >= 10) div_num_arr[i] = 10;
-      if (num_arr[i] >= 100) div_num_arr[i] = 100;
-      if (num_arr[i] >= 1000) div_num_arr[i] = 1000;
-      if (num_arr[i] >= 10000) div_num_arr[i] = 10000;
-      if (num_arr[i] >= 100000) div_num_arr[i] = 100000;
-      if (num_arr[i] >= 1000000) div_num_arr[i] = 1000000;
-      if (num_arr[i] >= 10000000) div_num_arr[i] = 10000000;
-      alert(`${i}-те число div_num_arr = ${div_num_arr[i]}`);
-    }
-
-    // alert(Math.floor(num_arr[0] / 10));
-    // alert(num_arr[0] % 10);
-    //
-    // alert(Math.floor(num_arr[1] / 100));
-    // alert(num_arr[1] % 10);
-
-    // alert(Math.floor(num_arr[2] / 1000));
-    // alert(Math.floor((num_arr[2] / 100) % 10));
-    // alert(Math.floor((num_arr[2] / 10) % 10));
-    // alert(num_arr[2] % 10);
-
-    // alert(Math.floor(num_arr[3] / 10000));
-    // alert(Math.floor((num_arr[3] / 1000) % 10));
-    // alert(Math.floor((num_arr[3] / 100) % 10));
-    // alert(Math.floor((num_arr[3] / 10) % 10));
-    // alert(num_arr[3] % 10);
-
-    // alert(Math.floor(num_arr[4] / 100000));
-    // alert(Math.floor((num_arr[4] / 10000) % 10));
-    // alert(Math.floor((num_arr[4] / 1000) % 10));
-    // alert(Math.floor((num_arr[4] / 100) % 10));
-    // alert(Math.floor((num_arr[4] / 10) % 10));
-    // alert(num_arr[4] % 10);
-
-    let num_digits = [];
-
-    for (let i = 0; i < num_arr.length; i++) {
-      if (num_arr[i] >= 10) {}
-    }
-  }
-
-=======
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <script>
+    function digitCount(K) {
+        // return String(K).length;
+        let counter = 0;
+        if (K % 10 >= 0) counter++;
+        for (let i = 2, divider = 10; i <= String(K).length; i++, divider * 10) {
+            if (Math.floor(K / divider) >= 0) counter++;
+        }
+        return counter;
+    }
+
+    function proc29() {
+        let arr_K = [101,
+            12,
+            123,
+            1234,
+            12345];
+        for (let i = 0; i < 5; i++) {
+            alert(digitCount(arr_K[i]));
+        }
+    }
+
+    //proc29();
+
+    function digitN(K, N) {
+        if (digitCount(K) < N) return -1;
+        //let digit = 0;
+        //let nums_digit_amount = digitCount(K);
+        if (N == 1) return K % 10;
+        if (N == 2) return Math.floor(K / 10);
+        if (N == 3) return Math.floor(K / 100);
+        if (N == 4) return Math.floor(K / 1000);
+        if (N == 5) return Math.floor(K / 10000);
+        if (N == 6) return Math.floor(K / 100000);
+        if (N == 7) return Math.floor(K / 1000000);
+        //for (let i = 0; i < ) {}
+    }
+
+    function proc30() {
+        let k = [1,
+            12,
+            123,
+            1234,
+            12345]
+        for (let i = 0; i < 5; i++) {
+            for (let n = 1; n <= 5; n++) {
+                console.log(digitN(k[i], n));
+            }
+        }
+    }
+
+    //proc30();
+
     function proc31() {
+        // proc31
         // let K = 12355321;
-        let num_arr = [12, 121, 1221, 12321, 121121, 123421, 9856589, 321123, 959, 10];
+        let num_arr = [12,
+            121,
+            1221,
+            12321,
+            121121,
+            123421,
+            9856589,
+            321123,
+            959,
+            10];
         let div_num_arr = [];
 
-        for (let i = 0; i < num_arr.length; i ++) {
+        for (let i = 0; i < num_arr.length; i++) {
             if (num_arr[i] >= 10) div_num_arr[i] = 10;
             if (num_arr[i] >= 100) div_num_arr[i] = 100;
             if (num_arr[i] >= 1000) div_num_arr[i] = 1000;
@@ -149,17 +95,122 @@
         // alert(Math.floor((num_arr[2] / 10) % 10));
         // alert(num_arr[2] % 10);
 
+        // alert(Math.floor(num_arr[3] / 10000));
+        // alert(Math.floor((num_arr[3] / 1000) % 10));
+        // alert(Math.floor((num_arr[3] / 100) % 10));
+        // alert(Math.floor((num_arr[3] / 10) % 10));
+        // alert(num_arr[3] % 10);
+
+        // alert(Math.floor(num_arr[4] / 100000));
+        // alert(Math.floor((num_arr[4] / 10000) % 10));
+        // alert(Math.floor((num_arr[4] / 1000) % 10));
+        // alert(Math.floor((num_arr[4] / 100) % 10));
+        // alert(Math.floor((num_arr[4] / 10) % 10));
+        // alert(num_arr[4] % 10);
+
         let num_digits = [];
 
         for (let i = 0; i < num_arr.length; i++) {
             if (num_arr[i] >= 10) {
-
             }
         }
     }
 
-    proc31();
->>>>>>> 42c6f9680d2917844ca62d666561976bafc7a8f7
+    //proc31();
+
+    function DegToRad(deg) {
+        return deg / 180 * Math.PI;
+    }
+
+    function proc32() {
+        let deg_arr = [0,
+            30,
+            60,
+            90,
+            180];
+        for (let i = 0; i < 5; i++) {
+            alert(DegToRad(deg_arr[i]).toFixed(2));
+        }
+    }
+    //proc32();
+
+    function RadToDeg(rad) {
+        return rad / 3.14 * 180;
+    }
+
+    function proc33() {
+        let rad_arr = [0.00,
+            0.52,
+            1.05,
+            1.57,
+            3.14];
+        for (let i = 0; i < 5; i++) {
+            alert(Math.round(RadToDeg(rad_arr[i])));
+        }
+    }
+
+    //proc33();
+
+    function Fact(N) {
+        let factor = 1;
+        for (let i = 1; i <= N; i++) factor *= i;
+        return factor;
+    }
+
+    function proc34() {
+        let arr_N = [3,
+            4,
+            5,
+            6,
+            7];
+        for (let i = 0; i < arr_N.length; i ++) alert(Fact(arr_N[i]));
+    }
+
+    //proc34();
+
+    function Fact2(N) {
+        let factor2 = 1;
+        if (N % 2 == 0) {
+            for (let i = 2; i <= N; i += 2) factor2 *= i;
+            return factor2;
+        } else {
+            for (let i = 1; i <= N; i += 2) factor2 *= i;
+            return factor2;
+        }
+    }
+
+    function proc35() {
+        let arr_N2 = [1,
+            2,
+            3,
+            4,
+            5];
+        for (let i = 0; i < arr_N2.length; i ++) alert(Fact2(arr_N2[i]));
+    }
+
+    //proc35();
+
+    function Fib(N) {
+        let num_F = N;
+        let num_F_1st_prev = 1,
+            num_F_2nd_prev = 0;
+        if (N >= 2) {
+            for (let i = 1; i < N; i++) {
+                num_F = num_F_2nd_prev + num_F_1st_prev;
+                num_F_2nd_prev = num_F_1st_prev;
+                num_F_1st_prev = num_F;
+            }
+        }
+        return num_F;
+    }
+
+    function proc36() {
+        for (let i = 1; i <= 10; i++) {
+            alert(Fib(i));
+        }
+    }
+
+    //proc36();
 </script>
 </body>
 </html>
