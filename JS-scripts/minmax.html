@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let getRand = max => Math.round(Math.random() * (max - 1) + 1);
+
+    // N - кількість чисел (рядків, тобто предметів у задачах),
+    // max_rand - межа для функції,
+    // columns (необов'язковий) - кількість чисел у рядку (стовпців).
+    function createRandArray(N, max_rand, columns) {
+        let arr_N = new Array(Math.abs(N));
+        if (!columns) {
+            for (let i = 0; i < N; i++) arr_N[i] = getRand(max_rand);
+            return arr_N;
+        }
+
+        if (Math.round(Math.abs(columns)) >= 2) {
+            for (let i = 0; i < N; i++) {
+                arr_N[i] = new Array(Math.round(Math.abs(columns)));
+                for (let j = 0; j < columns; j++) {
+                    arr_N[i][j] = getRand(max_rand);
+                }
+            }
+            return arr_N;
+        } else return arr_N;
+    }
+
+    function minmax1() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 10);
+
+        let min_N = arr_N[0], max_N = 0;
+        for (let i = 0; i < arr_N.length; i++) {
+            if (arr_N[i] < min_N) min_N = arr_N[i];
+            if (arr_N[i] > max_N) max_N = arr_N[i];
+        }
+
+        alert(`Масив з ${N} чисел: ${arr_N}, найменше число: ${min_N},
+        найбільше число: ${max_N}.`);
+    }
+
+    // minmax1();
+
+    function minmax2() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 10, 2);
+
+        let min_area = arr_N[0][0] * arr_N[0][1];
+        for (let i = 0; i < arr_N.length; i++) {
+            let area = arr_N[i][0] * arr_N[i][1];
+            if (area < min_area) min_area = area;
+        }
+
+        alert(`Масив з ${N} прямокутників (a1,b1,a2,b2,...): ${arr_N},
+        найменша площа серед наданих прямокутників: ${min_area}`);
+    }
+
+    // minmax2();
+
+    function minmax3() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 10, 2);
+
+        let max_perimeter = 2 * arr_N[0][0] + 2 * arr_N[0][1];
+        for (let i = 0; i < arr_N.length; i++) {
+            let perimeter = 2 * arr_N[i][0] + 2 * arr_N[i][1];
+            if (perimeter > max_perimeter) max_perimeter = perimeter;
+        }
+
+        alert(`Масив з ${N} прямокутників (a1,b1,a2,b2,...): ${arr_N},
+        найбільший периметр серед наданих прямукотників: ${max_perimeter}`);
+    }
+
+    // minmax3();
+
+    function minmax4() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 10);
+
+        let min_elem = arr_N[0], number;
+        for (let i = 0; i < arr_N.length; i++) {
+            if (arr_N[i] < min_elem) {
+                min_elem = arr_N[i];
+                number = i;
+            }
+        }
+
+        alert(`Масив з ${N} чисел: ${arr_N}, номер майменшого числа: ${number + 1}`);
+    }
+
+    // minmax4();
+
+    function minmax5() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 1000, 2);
+
+        let max_P = arr_N[0][0] / arr_N[0][1], index;
+        for (let i = 0; i < arr_N.length; i++) {
+            let P = arr_N[i][0] / arr_N[i][1];
+            if (P > max_P) {
+                max_P = P;
+                index = i + 1;
+            }
+        }
+
+        alert(`Набір з ${N} мас та об'ємів деталей (m1,v1,m2,v2,...): ${arr_N},
+        номер деталі з найбільшою густиною: ${index}, густина цієї деталі: ${max_P}`);
+    }
+
+    // minmax5();
+
+    function minmax6() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 2);
+
+        let min = arr_N[0], min_index = 1, max = 0, max_index;
+        for (let i = 0/*, j = N - 1*/; i < N/* && j > -1*/; i++/*, j--*/) {
+            if (arr_N[i] < min) {
+                min = arr_N[i];
+                min_index = i + 1;
+            }
+            // if (arr_N[j] > max) { // прохід з кінця, наврядчи це для однопрохідного алгоритму підходить
+            //     max = arr_N[j];
+            //     max_index = j + 1;
+            // }
+            if (arr_N[i] >= max) {
+                max = arr_N[i];
+                max_index = i + 1;
+            }
+        }
+
+        alert(`Набір з ${N} цілих чисел: ${arr_N},
+        перше найменше число: ${min}, його номер: ${min_index},
+        останнє найбільше число: ${max}, його номер: ${max_index}`);
+    }
+
+    // minmax6();
+
+    function minmax7() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 2);
+
+        let min = arr_N[0], min_index = 1, max = 0, max_index;
+        for (let i = 0; i < N; i++) {
+            if (arr_N[i] > max) {
+                max = arr_N[i];
+                max_index = i + 1;
+            }
+            if (arr_N[i] <= min) {
+                min = arr_N[i];
+                min_index = i + 1;
+            }
+        }
+
+        alert(`Набір з ${N} цілих чисел: ${arr_N},
+        перше найбільше число: ${max}, його номер: ${max_index},
+        останнє найменше число: ${min}, його номер: ${min_index}`);
+    }
+
+    // minmax7();
+
+    function minmax8() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 2);
+
+        let min = arr_N[0], first_min = 1, last_min;
+        for (let i = 0; i < N; i++) {
+            if (arr_N[i] < min) {
+                min = arr_N[i];
+                first_min = i + 1;
+            }
+            if (arr_N[i] <= min) {
+                min = arr_N[i];
+                last_min = i + 1;
+            }
+        }
+
+        alert(`Набір з ${N} цілих чисел: ${arr_N},
+        номер першого найменшого числа: ${first_min},
+        номер останнього найменшого числа: ${last_min}`);
+    }
+
+    // minmax8();
+
+    function minmax9() {
+        let N = +prompt("Введіть ціле додатнє число N:");
+        let arr_N = createRandArray(N, 2);
+
+        let max = arr_N[0], first_max = 1, last_max;
+        for (let i = 0; i < N; i++) {
+            if (arr_N[i] > max) {
+                max = arr_N[i];
+                first_max = i + 1;
+            }
+            if (arr_N[i] >= max) {
+                min = arr_N[i];
+                last_max = i + 1;
+            }
+        }
+
+        alert(`Набір з ${N} цілих чисел: ${arr_N},
+        номер першого найбільшого числа: ${first_max},
+        номер останнього найбільшого числа: ${last_max}`);
+    }
+
+    minmax9();
+</script>
+</body>
+</html>

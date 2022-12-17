@@ -71,18 +71,19 @@
             321123,
             959,
             10];
-        let div_num_arr = [];
 
-        for (let i = 0; i < num_arr.length; i++) {
-            if (num_arr[i] >= 10) div_num_arr[i] = 10;
-            if (num_arr[i] >= 100) div_num_arr[i] = 100;
-            if (num_arr[i] >= 1000) div_num_arr[i] = 1000;
-            if (num_arr[i] >= 10000) div_num_arr[i] = 10000;
-            if (num_arr[i] >= 100000) div_num_arr[i] = 100000;
-            if (num_arr[i] >= 1000000) div_num_arr[i] = 1000000;
-            if (num_arr[i] >= 10000000) div_num_arr[i] = 10000000;
-            alert(`${i}-те число div_num_arr = ${div_num_arr[i]}`);
-        }
+        // let div_num_arr = [];
+        //
+        // for (let i = 0; i < num_arr.length; i++) {
+        //     if (num_arr[i] >= 10) div_num_arr[i] = 10;
+        //     if (num_arr[i] >= 100) div_num_arr[i] = 100;
+        //     if (num_arr[i] >= 1000) div_num_arr[i] = 1000;
+        //     if (num_arr[i] >= 10000) div_num_arr[i] = 10000;
+        //     if (num_arr[i] >= 100000) div_num_arr[i] = 100000;
+        //     if (num_arr[i] >= 1000000) div_num_arr[i] = 1000000;
+        //     if (num_arr[i] >= 10000000) div_num_arr[i] = 10000000;
+        //     alert(`${i}-те число div_num_arr = ${div_num_arr[i]}`);
+        // }
 
         // alert(Math.floor(num_arr[0] / 10));
         // alert(num_arr[0] % 10);
@@ -108,15 +109,16 @@
         // alert(Math.floor((num_arr[4] / 10) % 10));
         // alert(num_arr[4] % 10);
 
-        let num_digits = [];
-
-        for (let i = 0; i < num_arr.length; i++) {
-            if (num_arr[i] >= 10) {
-            }
-        }
+        //     let num_digits = [];
+        //
+        //     for (let i = 0; i < num_arr.length; i++) {
+        //         if (num_arr[i] >= 10) {
+        //         }
+        //     }
+        // }
     }
 
-    //proc31();
+    proc31();
 
     function DegToRad(deg) {
         return deg / 180 * Math.PI;
@@ -132,6 +134,7 @@
             alert(DegToRad(deg_arr[i]).toFixed(2));
         }
     }
+
     //proc32();
 
     function RadToDeg(rad) {
@@ -163,7 +166,7 @@
             5,
             6,
             7];
-        for (let i = 0; i < arr_N.length; i ++) alert(Fact(arr_N[i]));
+        for (let i = 0; i < arr_N.length; i++) alert(Fact(arr_N[i]));
     }
 
     //proc34();
@@ -185,7 +188,7 @@
             3,
             4,
             5];
-        for (let i = 0; i < arr_N2.length; i ++) alert(Fact2(arr_N2[i]));
+        for (let i = 0; i < arr_N2.length; i++) alert(Fact2(arr_N2[i]));
     }
 
     //proc35();
@@ -209,8 +212,8 @@
             alert(Fib(i));
         }
     }
-
     //proc36();
+
 </script>
 </body>
 </html>
