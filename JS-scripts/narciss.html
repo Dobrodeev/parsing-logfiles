@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let isNarcissistic = (n, result = 0) => {
+        for (let digit of n) result += digit ** n.length;
+        return result == n;
+    }
+
+    let num = prompt(`Введіть ціле число: `);
+    alert(`Число ${num} нарцисичне? ${isNarcissistic(num)}.`);
+</script>
+</body>
+</html>
