@@ -221,6 +221,66 @@ function minmax20() {
 		`Найбільше число: ${maximum}\n` +
 		`Кількість екстремальних чисел: ${num_of_extrems}`
 	);
+
+/**
+Minmax10. Дано целое число N и набор из N целых чисел. Найти номер перво-
+го экстремального (то есть минимального или максимального) элемента из
+данного набора.
+*/
+function minmax10() {
+    const numbers = getRandomArray(1, 20, 8, 0);
+    
+    const first_index_of_min = numbers.findIndex( num => num == Math.min(...numbers) );
+	const first_index_of_max = numbers.findIndex( num => num == Math.max(...numbers) );
+    
+    const index_of_first_extremal = Math.min(first_index_of_min, first_index_of_max);
+    
+    alert(
+        `Числа: ${numbers}\n` +
+        `Номер першого екстремального елементу: ${index_of_first_extremal}\n` +
+        `Екстремальний елемент: ${numbers[index_of_first_extremal]}`
+    )
+}
+
+/**
+-------------------
+Мій варіант рішення
+-------------------
+
+Minmax12. Дано целое число N и набор из N чисел. Найти минимальное
+положительное число из данного набора. Если положительные числа в
+наборе отсутствуют, то вывести 0.
+*/
+function myMinmax12() {
+    const numbers = getRandomArray(-10, 20, 10, 0);   
+
+    const min_positive = Math.min( ...numbers.filter(num => num > 0) );
+    
+    alert(
+        `Числа: ${numbers}\n` +
+        // якщо в Math.min не передаються аргументи, ця функція повертає Infinity
+        `Найменше додатнє: ${( Number.isFinite(min_positive) )? min_positive : 0}`
+    )
+}
+
+/**
+Minmax14. Дано число B (> 0) и набор из десяти чисел. Вывести минимальный
+из тех элементов набора, которые больше B, а также его номер. Если чисел,
+больших B, в наборе нет, то дважды вывести 0.
+*/
+function minmax14() {
+    const numbers = getRandomArray(-20, 20, 10, 0);
+    const B = 7;
+
+    const min_above_B = Math.min( ...numbers.filter(num => num > B) );
+    const index_of_min_above_B = numbers.findIndex( num => num == min_above_B );
+    
+    alert(
+        `Числа: ${numbers}\n` +
+        // якщо в Math.min не передаються аргументи, ця функція повертає Infinity
+        `Найменше число більше B: ${( Number.isFinite(min_above_B) )? min_above_B : "нема"}\n` +
+        `Його індекс: ${(index_of_min_above_B != -1)? index_of_min_above_B : "нема"}`
+    )
 }
 
 try {
@@ -229,7 +289,10 @@ try {
 	//minmax4();
 	//minmax5();
 	//minmax8();
+    //minmax10();
 	//minmax12();
+	//myMinmax12();
+    //minmax14();
 	//minmax16();
 	minmax20();
 }
