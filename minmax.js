@@ -251,7 +251,7 @@ function minmax10() {
         `Числа: ${numbers}\n` +
         `Номер першого екстремального елементу: ${index_of_first_extremal}\n` +
         `Екстремальний елемент: ${numbers[index_of_first_extremal]}`
-    )
+    );
 }
 
 /**
@@ -272,7 +272,7 @@ function myMinmax12() {
         `Числа: ${numbers}\n` +
         // якщо в Math.min не передаються аргументи, ця функція повертає Infinity
         `Найменше додатнє: ${( Number.isFinite(min_positive) )? min_positive : 0}`
-    )
+    );
 }
 
 /**
@@ -292,7 +292,7 @@ function minmax14() {
         // якщо в Math.min не передаються аргументи, ця функція повертає Infinity
         `Найменше число більше B: ${( Number.isFinite(min_above_B) )? min_above_B : "нема"}\n` +
         `Його індекс: ${(index_of_min_above_B != -1)? index_of_min_above_B : "нема"}`
-    )
+    );
 }
 
 /**
@@ -318,11 +318,11 @@ function minmax21() {
         filtered_array.reduce(
             (accumulator, current_value) => accumulator + current_value
         ) / filtered_array.length;
-    
+
     alert(
         `Числа: ${numbers}\n` +
         `Середнє значення: ${(!mean_value)? "неможливо обчислити" : mean_value}\n`
-    )
+    );
 }
 
 /**
@@ -334,16 +334,16 @@ function minmax22() {
     const numbers = getRandomArray(-20, 20, 10, 0);
     let temp = numbers.map(x => x);
     let minima = new Array(2);
-    
+
     for (let i = 0; i < minima.length; ++i) {
         minima[i] = Math.min(...temp);
         temp = temp.filter(num => num != minima[i]);
     }
-    
+
     alert(
         `Числа: ${numbers}\n` +
         `Мінімуми: ${minima}\n`
-    )
+    );
 }
 
 /**
@@ -354,18 +354,105 @@ function minmax24() {
     const array_amount = 5;
     const numbers = getRandomArray(-20, 20, array_amount, 0);
     let neighbour_pairs_sums = new Array(array_amount - 1);
-    
+
     for (let i = 0; i < numbers.length - 1; ++i) {
         neighbour_pairs_sums[i] = numbers[i] + numbers[i + 1];
     }
-    
+
     const max_neighbour_pairs_sum = Math.max(...neighbour_pairs_sums);
-    
+
     alert(
         `Числа: ${numbers}\n` +
         `Суми двох сусідних чисел: ${neighbour_pairs_sums}\n` +
         `Найбільша сума двох сусідних чисел: ${max_neighbour_pairs_sum}`
-    )
+    );
+}
+
+/**
+Minmax25. Дано целое число N (> 1) и набор из N чисел. Найти номера двух
+соседних чисел из данного набора, произведение которых является мини-
+мальным, и вывести вначале меньший, а затем больший номер.
+*/
+function minmax25() {
+    const array_amount = 5;
+    const numbers = getRandomArray(-20, 20, array_amount, 0);
+    let neighbour_pairs_products = new Array(array_amount - 1);
+
+    for (let i = 0; i < numbers.length - 1; ++i) {
+        neighbour_pairs_products[i] = {
+            first: i,
+            second: i + 1,
+            value: numbers[i] * numbers[i + 1]
+        };
+    }
+
+    const min_neighbour_pairs_product = neighbour_pairs_products.sort(
+        (a, b) => a.value > b.value
+    )[0];
+
+    alert(
+        `Числа: ${numbers}\n` +
+        "Найменший добуток двох сусідних чисел: " +
+        `${min_neighbour_pairs_product.value} ` +
+        `(№${min_neighbour_pairs_product.first} та ` +
+        `№${min_neighbour_pairs_product.second})`
+    );
+}
+
+/**
+Minmax26. Дано целое число N и набор из N целых чисел. Найти максимальное
+количество четных чисел в наборе, идущих подряд. Если четные числа в
+наборе отсутствуют, то вывести 0.
+*/
+function minmax26() {
+    const numbers = getRandomArray(-20, 20, 15, 0);
+    let amounts = [0];
+    let is_counting = false;
+
+    for (const number of numbers) {
+        if (is_counting) {
+            if (number % 2 == 0) {
+                ++amounts[amounts.length - 1];
+            }
+            else {
+                is_counting = false;
+                amounts.push(0);
+            }
+        }
+        else {
+            if (number % 2 == 0) {
+                is_counting = true;
+                ++amounts[amounts.length - 1];
+            }
+        }
+    }
+
+    alert(
+        `Числа: ${numbers}\n` +
+        "Найбільша кількість парних чисел, які йдуть один за одним: " +
+        `${Math.max(...amounts)}`
+    );
+}
+
+/**
+Minmax18. Дано целое число N и набор из N целых чисел. Найти количество
+элементов, содержащихся между первым и последним максимальным эле-
+ментом. Если в наборе имеется единственный максимальный элемент, то
+вывести 0.
+*/
+function minmax18() {
+    const numbers = getRandomArray(-20, 20, 15, 0);
+
+    const max = Math.max(...numbers);
+    const amount = (
+        numbers.findLastIndex(a => a == max) - numbers.findIndex(a => a == max)
+    ) - 1;
+
+    alert(
+        `Числа: ${numbers}\n` +
+        // якщо найбільше число тільки одне, то amount дорівнює -1
+        `${(amount == -1)? 0 : amount}`
+    );
 }
 
 try {
@@ -382,10 +469,12 @@ try {
     //minmax20();
     //minmax21();
     //minmax22();
-    minmax24();
+    //minmax24();
+    //minmax25();
+    //minmax26();
+    minmax18();
 }
 catch (error) {
     alert(error.message);
     console.log(error.message);
 }
-    
