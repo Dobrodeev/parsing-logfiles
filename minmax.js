@@ -455,6 +455,65 @@ function minmax18() {
     );
 }
 
+/**
+Minmax27. Дано целое число N и набор из N целых чисел, содержащий только
+нули и единицы. Найти номер элемента, с которого начинается самая
+длинная последовательность одинаковых чисел, и количество элементов в
+этой последовательности. Если таких последовательностей несколько, то
+вывести номер первой из них
+*/
+function minmax27() {
+    const numbers = getRandomArray(0, 1, 15, 0);
+    let amounts = [{index: 0, start: 0, end: 0, amount: 0}];
+    
+    let is_counting_0 = numbers[0] == 0;
+    let sequence_index = 0;
+
+    for (let i = 0; i < numbers.length; ++i) {
+        if (is_counting_0) {
+            if (numbers[i] == 0) {
+                ++amounts[amounts.length - 1].amount;
+            }
+            else {
+                is_counting_0 = false;
+                amounts[amounts.length - 1].end = i - 1;
+                // оскільки ми вже пройшли нулі, то тепер ми на одиниці,
+                // отже кількість дорівнює 1, послідовність закінчується на i - 1
+                ++sequence_index;
+                amounts.push({index: sequence_index, start: i, end: 0, amount: 1});
+            }
+        }
+        else {
+            if (numbers[i] == 1) {
+                ++amounts[amounts.length - 1].amount;
+            }
+            else {
+                is_counting_0 = true;
+                // оскільки ми вже пройшли одиниці, то тепер ми на нулі,
+                // отже кількість дорівнює 1, послідовність закінчується на i - 1
+                amounts[amounts.length - 1].end = i - 1;
+                ++sequence_index;
+                amounts.push({index: sequence_index, start: i, end: 0, amount: 1});
+            }
+        }
+    }
+    
+    amounts[amounts.length - 1].end = numbers.length - 1;
+    
+    // сортування за кількістю в порядку спадання, інакше за початком в порядку зростання
+    amounts.sort(
+        (a, b) => 
+            (a.amount != b.amount)? a.amount < b.amount : a.start > b.start
+    );
+
+    alert(
+        `Числа: ${numbers}\n` +
+        `Найбільша послідовність однакових чисел: номер послідовності ${amounts[0].index}; ` + 
+        `кількість ${amounts[0].amount}; початок: ${amounts[0].start}; ` + 
+        `кінець: ${amounts[0].end}.`
+    );
+}
+
 try {
     //minmax1();
     //minmax2_3();
@@ -472,7 +531,8 @@ try {
     //minmax24();
     //minmax25();
     //minmax26();
-    minmax18();
+    //minmax18();
+    minmax27();
 }
 catch (error) {
     alert(error.message);
