@@ -8,31 +8,31 @@
 
 <body>
     <script>
-        let getRand = max => Math.round(Math.random() * (max - 1) + 1);
+        let getRand = (max, min = 0) => Math.round(Math.random() * (max - (min)) + (min));
 
-        // N - кількість чисел (рядків, тобто предметів у задачах),
-        // max_rand - межа для функції,
+        // N - кількість чисел (рядків, предметів у задачах),
+        // max_rand, min_rand - межі для функції,
         // columns (необов'язковий) - кількість чисел у рядку (стовпців).
-        function createRandArray(N, max_rand, columns) {
-            let arr_N = new Array(Math.abs(N));
+        function createRandArray(N, max_rand, min_rand, columns) {
+            let arr = new Array(Math.abs(N));
             if (!columns) {
-                for (let i = 0; i < N; i++) arr_N[i] = getRand(max_rand);
-                return arr_N;
+                for (let i = 0; i < N; i++) arr[i] = getRand(max_rand, min_rand);
+                return arr;
             }
 
             if (Math.round(Math.abs(columns)) >= 2) {
                 for (let i = 0; i < N; i++) {
-                    arr_N[i] = new Array(Math.round(Math.abs(columns)));
+                    arr[i] = new Array(Math.round(Math.abs(columns)));
                     for (let j = 0; j < columns; j++) {
-                        arr_N[i][j] = getRand(max_rand);
+                        arr[i][j] = getRand(max_rand, min_rand);
                     }
                 }
-                return arr_N;
-            } else return arr_N;
+                return arr;
+            } else return arr;
         }
 
         function minmax1() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 10);
 
             let min_N = arr_N[0], max_N = 0;
@@ -48,8 +48,8 @@
         // minmax1();
 
         function minmax2() {
-            let N = +prompt("Введіть ціле додатнє число N:");
-            let arr_N = createRandArray(N, 10, 2);
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let arr_N = createRandArray(N, 10, 0, 2);
 
             let min_area = arr_N[0][0] * arr_N[0][1];
             for (let i = 0; i < arr_N.length; i++) {
@@ -64,8 +64,8 @@
         // minmax2();
 
         function minmax3() {
-            let N = +prompt("Введіть ціле додатнє число N:");
-            let arr_N = createRandArray(N, 10, 2);
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let arr_N = createRandArray(N, 10, 0, 2);
 
             let max_perimeter = 2 * arr_N[0][0] + 2 * arr_N[0][1];
             for (let i = 0; i < arr_N.length; i++) {
@@ -80,7 +80,7 @@
         // minmax3();
 
         function minmax4() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 10);
 
             let min_elem = arr_N[0], number;
@@ -97,8 +97,8 @@
         // minmax4();
 
         function minmax5() {
-            let N = +prompt("Введіть ціле додатнє число N:");
-            let arr_N = createRandArray(N, 1000, 2);
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let arr_N = createRandArray(N, 1000, 0, 2);
 
             let max_P = arr_N[0][0] / arr_N[0][1], index;
             for (let i = 0; i < arr_N.length; i++) {
@@ -116,7 +116,7 @@
         // minmax5();
 
         function minmax6() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 2);
 
             let min = arr_N[0], min_index = 1, max = 0, max_index;
@@ -143,7 +143,7 @@
         // minmax6();
 
         function minmax7() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 2);
 
             let min = arr_N[0], min_index = 1, max = 0, max_index;
@@ -166,7 +166,7 @@
         // minmax7();
 
         function minmax8() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 2);
 
             let min = arr_N[0], first_min = 1, last_min;
@@ -189,7 +189,7 @@
         // minmax8();
 
         function minmax9() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 2);
 
             let max = arr_N[0], first_max = 1, last_max;
@@ -212,16 +212,15 @@
         // minmax9();
 
         function minmax10() {
-            let N = +prompt("Введіть ціле додатнє число N:");
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
             let arr_N = createRandArray(N, 10);
 
-            // let first_min_or_max, num_i_prev/*, num_i*/, num_i_next;
             let min = arr_N[0];
             let max = arr_N[0];
             let minIndex;
             let maxIndex;
 
-            for (let i = 1; i < arr_N.length; i++) {
+            for (let i = 0; i < N; i++) {
                 if (arr_N[i] < min) {
                     min = arr_N[i];
                     minIndex = i;
@@ -232,7 +231,6 @@
                 }
             }
 
-            // виводимо масив та індекс першого екстремального числа
             if (minIndex > maxIndex) {
                 alert(`Масив чисел: ${arr_N}, першим екстремальним числом є ${max} з індексом ${maxIndex}`);
 
@@ -240,21 +238,447 @@
             if (minIndex < maxIndex) {
                 alert(`Масив чисел: ${arr_N}, першим екстремальним числом є ${min} з індексом ${minIndex}`);
             }
-            // alert(`Набір з ${N} цілих чисел: ${arr_N}, перше екстремальне число: ${first_min_or_max}`);
+
+            // екстремум?
+            // let first_min_or_max, num_i_prev/*, num_i*/, num_i_next;
+            // for (let i = 0; i < N; i++) {
+            // num_i_prev = arr_N[i - 1];
+            // num_i_next = arr_N[i + 1];
+
+            // if ((arr_N[i] < num_i_prev && arr_N[i] < num_i_next) || (arr_N[i] > num_i_prev && arr_N[i] > num_i_next)) {
+            //     first_min_or_max = arr_N[i];  
+            //     }
+            // alert(`Набір з ${N} цілих чисел: ${arr_N}, перше екстремальне число: $first_min_or_max}`);
         }
 
-        minmax10();
+        // minmax10();
 
-    // екстремум?
-    // for (let i = 0; i < N; i++) {
-//     num_i_prev = arr_N[i - 1];
-//     num_i_next = arr_N[i + 1];
 
-//     if ((arr_N[i] < num_i_prev && arr_N[i] < num_i_next) || (arr_N[i] > num_i_prev && arr_N[i] > num_i_next)) {
-//         first_min_or_max = arr_N[i];
-        
-//     }
+        function minmax12() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу масиву L (значення від -L до L; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim, -lim);
+            let min_positive = lim, not_positive_count = 0;
 
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] > 0 && arr_N[i] < min_positive) min_positive = arr_N[i];
+                if (arr_N[i] <= 0) ++not_positive_count;
+            }
+            if (not_positive_count == N) min_positive = 0;
+
+            alert(`Масив із ${N} чисел: ${arr_N}, найменшим додатним числом є ${min_positive}.`);
+        }
+
+        // minmax12();
+
+        function minmax13() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу значень масиву L (значення від -L до L; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim, -lim);
+            let max_negative = -lim, first_max_negative, not_negative_count = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] < 0 && arr_N[i] > max_negative) {
+                    max_negative = arr_N[i];
+                    first_max_negative = i + 1;
+                }
+                if (arr_N[i] >= 0) ++not_negative_count;
+            }
+            if (not_negative_count == N) first_max_negative = 0;
+
+            alert(`Масив із ${N} чисел: ${arr_N}, номер першого найбільшого від'ємного числа: ${first_max_negative}.`);
+        }
+
+        // minmax13();
+
+        function minmax14() {
+            let B = Math.abs(+prompt("Введіть ціле додатне число B:"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (ціле додатне число):"));
+            let arr = createRandArray(10, lim);
+            let min_great_than_B = lim, min_great_number, less_than_B = 0;
+
+            for (let i = 0; i < 10; i++) {
+                if (arr[i] > B && arr[i] < min_great_than_B) {
+                    min_great_than_B = arr[i];
+                    min_great_number = i + 1;
+                }
+                if (arr[i] <= B) ++less_than_B;
+            }
+            if (less_than_B == 10) {
+                min_great_number = 0;
+                min_great_than_B = 0;
+            }
+
+            alert(`Масив із 10 чисел: ${arr}, найменше число, що більше за B: ${min_great_than_B}, його номер: ${min_great_number}.`);
+        }
+
+        // minmax14();
+
+        function minmax15() {
+            let B = Math.abs(+prompt("Введіть ціле додатне число B:"));
+            let C = Math.abs(+prompt("Введіть ціле додатне число C (C > B):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr = createRandArray(10, lim);
+            let interval_max = B, interval_max_number, interval_B_C = [];
+
+            for (let i = 0; i < 10; i++) {
+                if (arr[i] > B && arr[i] < C && arr[i] > interval_max) {
+                    interval_max = arr[i];
+                    interval_max_number = i + 1;
+                    interval_B_C.push(arr[i]);
+                }
+                if (interval_B_C.length == 0) interval_max = interval_max_number = 0;
+            }
+
+            alert(`Масив із 10 чисел: ${arr}, найбільше число між B та C: ${interval_max}, його номер: ${interval_max_number}.`);
+        }
+
+        // minmax15();
+
+        function minmax16() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу значень масиву L (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let first_min = lim, before_first_min_amount = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] < first_min) {
+                    first_min = arr_N[i];
+                    before_first_min_amount = i;
+                }
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, кількість чисел перед першим найменшим числом: ${before_first_min_amount}.`);
+        }
+
+        // minmax16();
+
+        function minmax17() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу значень масиву L (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let last_max = 0, after_last_max_amount = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] >= last_max) {
+                    last_max = arr_N[i];
+                    after_last_max_amount = N - (i + 1);
+                }
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, кількість чисел після останнього найбільшого числа: ${after_last_max_amount}.`);
+        }
+
+        // minmax17();
+
+        function minmax18() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу значень масиву L (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let first_max = 0; last_max = 0, first_max_index = 0, last_max_index = 0, between_first_last_amount = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] > first_max) {
+                    first_max = arr_N[i];
+                    first_max_index = i + 1;
+                }
+                if (arr_N[i] >= last_max) {
+                    last_max = arr_N[i];
+                    last_max_index = i + 1;
+                }
+            }
+            if (last_max_index == first_max_index) {
+                between_first_last_amount = 0;
+            } else between_first_last_amount = last_max_index - first_max_index - 1;
+
+            alert(`Масив із ${N} чисел: ${arr_N}, кількість чисел між першим і останнім найбільшим числом: ${between_first_last_amount}.`);
+        }
+
+        // minmax18();
+
+        function minmax19() {
+            let N = +prompt("Введіть розмір масиву N (ціле додатне число):");
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let min = lim, min_arr = [lim + 1];
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] <= min) {
+                    min = arr_N[i];
+                    if (min == min_arr[0]) min_arr.push(min);
+                    else if (min < min_arr[0]) {
+                        min_arr = [];
+                        min_arr.push(min);
+                    }
+                }
+
+                // alert(`Масив: ${arr_N}, масив найменших: ${min_arr}`);
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, кількість найменших чисел: ${min_arr.length}.`);
+        }
+
+        // minmax19();
+
+        function minmax20() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let min = lim, max = -2, min_arr = [lim + 1], max_arr = [-2], extrem_amount = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] <= min) {
+                    min = arr_N[i];
+                    if (min == min_arr[0]) min_arr.push(min);
+                    else if (min < min_arr[0]) {
+                        min_arr = [];
+                        min_arr.push(min);
+                    }
+                }
+
+                if (arr_N[i] >= max) {
+                    max = arr_N[i];
+                    if (max == max_arr[0]) max_arr.push(max);
+                    else if (max > max_arr[0]) {
+                        max_arr = [];
+                        max_arr.push(max);
+                    }
+                }
+
+                // alert(`Масив: ${arr_N}, масив найменших: ${min_arr}, масив найбільших: ${max_arr}`);
+            }
+
+            extrem_amount = (String(min_arr) == String(max_arr)) ? min_arr.length : min_arr.length + max_arr.length; // якщо якесь число буде одночасно і найменшим, і найбільшим, і масив складатиметься тільки з цього числа, то кількість екстремальних чисел = кількість чисел у масиві ^ 2; якщо так і потрібно, то цей рядок коду зайвий
+            alert(`Масив із ${N} чисел: ${arr_N}, кількість екстремальних чисел: ${extrem_amount}.`);
+        }
+
+        // minmax20();
+
+        function minmax21() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число, N > 2):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let min = lim, max = -2, min_arr = [lim + 1], max_arr = [-2], avr_arr = [], avr_sum = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] <= min) {
+                    min = arr_N[i];
+                    if (min == min_arr[0]) min_arr.push(min);
+                    else if (min < min_arr[0]) {
+                        avr_arr.push(min_arr);
+                        min_arr = [];
+                        min_arr.push(min);
+                    }
+                }
+
+                if (arr_N[i] >= max) {
+                    max = arr_N[i];
+                    if (max == max_arr[0]) max_arr.push(max);
+                    else if (max > max_arr[0]) {
+                        avr_arr.push(max_arr);
+                        max_arr = [];
+                        max_arr.push(max);
+                    }
+                }
+
+                if (avr_arr[0] == lim + 1) avr_arr = [];
+
+                // if (arr_N[i] != max && arr_N[i] != min) {
+                //     if (avr_arr[0] > lim || avr_arr[0] < 0 || String(min_arr) == String(max_arr)) {
+                //         avr_arr.shift();
+                //         avr_sum += arr_N[i];
+                //     }
+                //     avr_arr.push(arr_N[i]);
+                // }
+
+                // лишний раз добавляется число в масив средних
+                // 6 4 4 9 
+                // <: 4 4; >: 9; !<>: 6 6 (из обоих массивов кинуло 6)
+
+                // неправильно считается сумма средних
+                // 
+
+                alert(`Масив: ${arr_N}, масив найменших: ${min_arr}; масив найбільших: ${max_arr}; масив середніх: ${avr_arr}; сума середніх: ${avr_sum}`);
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, середнє арифметичне чисел без екстремальних значень: ${avr_sum / avr_arr.length}.`);
+        }
+
+        // minmax21();
+
+        function minmax22() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число, N > 2):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            // let min = lim + 1, min_arr = [lim + 1];
+
+            // for (let i = 0; i < N; i++) {
+            //     if (arr_N[i] < min) {
+            //         min = arr_N[i];
+            //         if (min < min_arr[0]) {
+            //         // min_arr.push(min);
+            //         //     min_arr = [];
+            //             min_arr.push(min);
+            //         }
+            //         if (min_arr.length > 2) min_arr.shift();
+            //     }
+            //     alert(`Масив: ${arr_N}, масив найменших: ${min_arr}`);
+            // }
+
+            // arr_N.sort(compareNumbers() {
+            //     return a - b;
+            // });
+
+            alert(`Масив із ${N} чисел до сортування: ${arr_N}`)
+            for (let i = 0; i < N; i++) {
+                arr_N.sort(function (a, b) {
+                    return a - b;
+                });
+            }
+
+            alert(`Масив із ${N} чисел після сортування: ${arr_N}, два найменших числа: ${arr_N[0]}; ${arr_N[1]}.`);
+        }
+
+        // minmax22();
+
+        function minmax23() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число, N > 3):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+
+            alert(`Масив із ${N} чисел до сортування: ${arr_N}`)
+            for (let i = 0; i < N; i++) {
+                arr_N.sort(function (a, b) {
+                    return b - a;
+                });
+            }
+
+            alert(`Масив із ${N} чисел після сортування: ${arr_N}, три найбільших числа: ${arr_N[0]}; ${arr_N[1]}; ${arr_N[2]}.`);
+
+        }
+
+        // minmax23();
+
+        function minmax24() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число, N > 1):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let max_neighbour_sum = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] + arr_N[i + 1] > max_neighbour_sum) {
+                    max_neighbour_sum = arr_N[i] + arr_N[i + 1];
+                }
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, найбільша сума двох сусідніх чисел: ${max_neighbour_sum}.`);
+        }
+
+        // minmax24();
+
+        function minmax25() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число, N > 1):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let min_neighbour_product = lim * lim, prod_arr = [];
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] * arr_N[i + 1] < min_neighbour_product) {
+                    prod_arr = [];
+                    min_neighbour_product = arr_N[i] * arr_N[i + 1];
+                    prod_arr.push(arr_N[i], arr_N[i + 1]);
+                }
+            }
+
+            (prod_arr[0] > prod_arr[1]) ? prod_arr.reverse() : 0;
+
+            alert(`Масив із ${N} чисел: ${arr_N}, два сусідні числа, що утворюють найменший добуток: ${prod_arr}.`);
+        }
+
+        // minmax25();
+
+        function minmax26() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let even_arr_length = 0, even_arr_max_length = 0;
+
+            for (let i = 0; i < N; i++) {
+                if ((arr_N[i] % 2) == 0) {
+                    ++even_arr_length;
+                    if (even_arr_length > even_arr_max_length) even_arr_max_length = even_arr_length;
+                } else if (even_arr_length != 0) {
+                    even_arr_length = 0;
+                }
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}, найбільша кількість парних чисел, що йдуть підряд: ${even_arr_max_length}.`);
+        }
+
+        // minmax26();
+
+        function minmax27() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число):"));
+            let arr_N = createRandArray(N, 1);
+            let current_num = 0; current_same = 0, max_same = 0, same_index = 0, first_same_index = N; 
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] == current_num) {
+                    // current_num = arr_N[i];
+                    ++current_same;
+                    same_index = i;
+                    if (current_same > max_same) max_same = current_same;
+                    if (same_index < first_same_index) first_same_index = same_index;
+                    /**
+                     * если первое = 0
+                     * s_i = 0; с_s = 1; m_s = 1; 
+                     * 
+                     * */
+                } else {
+                    current_num = arr_N[i];
+                    current_same = 0;
+                    ++current_same;
+                }
+            }
+
+            /** 1 0 0 1 1 1 0 1 1 1
+             * arr_N[i] равен текущему? если да, то ++current_same (1); current_same > max_same? max_same = current_same
+             * arr_N[i] равен текущему? если нет, то current_num = ему; current_same = 0; ++current_same
+             * индексы в массив индексов и из них вывыести наименьший   ??
+             * меняется число - 
+             */ 
+
+             alert(`Масив із ${N} чисел: ${arr_N}, номер числа, з якого починається найбільша послідовність однакових чисел: ${first_same_index}, кількість чисел у цій послідовності: ${max_same}.`);
+
+        }
+
+        // minmax27();
+
+        function minmax29() {
+            let N = Math.abs(+prompt("Введіть розмір масиву N (ціле додатне число):"));
+            let lim = Math.floor(+prompt("Введіть межу значень L масиву (значення до L включно; ціле додатне число):"));
+            let arr_N = createRandArray(N, lim);
+            let current_min = lim + 1, same_amount = 0, max_same_amount = 0;
+
+            for (let i = 0; i < N; i++) {
+                if (arr_N[i] == current_min) {
+                    ++same_amount;
+                }
+                if (arr_N[i] < current_min) {
+                    current_min = arr_N[i];
+                    same_amount = 0;
+                    ++same_amount;
+                }
+                if (arr_N[i] > current_min) {
+                    same_amount = 0;
+                }
+                if (same_amount > max_same_amount) max_same_amount = same_amount;
+            }
+
+            alert(`Масив із ${N} чисел: ${arr_N}; найбільша кількість найменших чисел, що йдуть підряд: ${max_same_amount}.`);
+        }
+
+        minmax29();
     </script>
 </body>
 
