@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Написати функцію, яка повертає тільки однакові елементи двох множин (масивов).
+        function task1() {
+            const array1 = [1, 2, 3, 4];
+            const array2 = [4, 3, 5];
+            const arr = [];
+
+            function same_elements(arr1, arr2) {
+                for (let i = 0; i < 5; i++) {
+                    if (arr1.includes(arr2[i])) {
+                        arr.push(arr2[i]);
+                    }
+                }
+                alert(`same_elements: ${arr}`);
+            }
+
+            same_elements(array1, array2);
+        }
+
+        // 2. Написати функцію, яка повертає тільки унікальні елементи двох множин.
+        function task2() {
+            const array1 = [1, 2, 3, 4];
+            const array2 = [4, 3, 5];
+            const arr = [];
+
+            function diff_elements(arr1, arr2) {
+                for (let i = 0; i < 4; i++) {
+                    if (!(arr1.includes(arr2[i]))) {
+                        arr.push(arr2[i]);
+                    }
+                    if (!(arr2.includes(arr1[i]))) {
+                        arr.push(arr1[i]);
+                    }
+                }
+                alert(`diif_elements: ${arr}`);
+            }
+
+            diff_elements(array1, array2);
+        }
+
+
+        // 3. Перетворити всі елементи списку типу string в верхній регістр, використовуючи map.
+        function task3() {
+            const arr = ['word1', 'word2', 'word3'];
+
+            const map = arr.map(x => x.toLocaleUpperCase('en-US'));
+
+            alert(`У верхньому регістрі: ${map}`);
+        }
+
+
+        // 4. Вивести всі елементу масиву, які є числом, використовуючи filter.
+        function task4() {
+            const arr = [1, 'two', 3, 'four'];
+
+            const numbers = [];
+            arr.filter(num => { if (isFinite(num)) numbers.push(num); });
+            alert(numbers);
+        }
+
+
+        // 5. Написати рекурсію, яка буде друкувати числа від введенного користувачем до нуля.
+        function task5() {
+            let arr = [];
+
+            function recur(num) {
+                if (num === 0) return 0;
+                arr.push(num);
+                recur(num - 1);
+            }
+
+            recur(+prompt("Введіть число: ")); 
+            alert(arr);       
+        }
+
+
+        // 6. (необов'язкове виконання) Створити програму, яка буде приймати число і друкувати відповідне число в послідовності Фібоначчі, використовуючи рекурсію.
+        function task6() {
+            const fib_numb = +prompt('Введіть номер числа з послідовності Фібоначі');
+            
+            function fibonacci(num) {
+                if (num <= 2) return 1;
+                else return fibonacci(num - 1) + fibonacci(num - 2);
+            }
+
+            alert(`Число ${fib_numb} з послідовності Фібоначі: ${fibonacci(fib_numb)}`);
+        }
+
+
+        // 7. (необов'язкове виконання) Написати програму, яка буде повертати факторіал введеного числа, використовуючи рекурсію.
+        function task7() { 
+            const fact_num = +prompt('Введіть число, факторіал якого треба знайти: ');
+
+            function factorial(num) {
+                if (num === 0) return 1;
+                else return num * factorial(num - 1);
+            }
+
+            alert(`Факторіал числа ${fact_num}: ${factorial(fact_num)}.`);
+        }
+
+        // task1();
+        // task2();
+        // task3();
+        // task4();
+        // task5();
+        // task6();
+        task7();
+    </script>
+</body>
+
+</html>
