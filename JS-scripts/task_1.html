@@ -88,26 +88,39 @@
         // 6. (необов'язкове виконання) Створити програму, яка буде приймати число і друкувати відповідне число в послідовності Фібоначчі, використовуючи рекурсію.
         function task6() {
             const fib_numb = +prompt('Введіть номер числа з послідовності Фібоначі');
+            const fib_arr = [];
             
             function fibonacci(num) {
                 if (num <= 2) return 1;
-                else return fibonacci(num - 1) + fibonacci(num - 2);
+                else {
+                    return fibonacci(num - 1) + fibonacci(num - 2);
+                }
             }
 
-            alert(`Число ${fib_numb} з послідовності Фібоначі: ${fibonacci(fib_numb)}`);
+            for (let i = 1; i < 31; i++) {
+                fib_arr.push(fibonacci(i));
+            }
+            
+            // alert(`Число ${fib_numb} з послідовності Фібоначі: ${fibonacci(fib_numb)}`);
+            alert(`Числа до ${fib_numb}-го з послідовності Фібоначі: ${fib_arr}`);
         }
-
-
+        
+        
         // 7. (необов'язкове виконання) Написати програму, яка буде повертати факторіал введеного числа, використовуючи рекурсію.
         function task7() { 
             const fact_num = +prompt('Введіть число, факторіал якого треба знайти: ');
-
+            const fact_arr = [];
+            
             function factorial(num) {
                 if (num === 0) return 1;
                 else return num * factorial(num - 1);
             }
+            
+            for (let i = 1; i < 11; i++) {
+                fact_arr.push(factorial(i));
+            }
 
-            alert(`Факторіал числа ${fact_num}: ${factorial(fact_num)}.`);
+            alert(`Факторіали до числа ${fact_num}: ${fact_arr}.`);
         }
 
         // task1();
